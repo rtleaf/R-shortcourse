@@ -1,0 +1,132 @@
+---
+output:
+  html_document:
+    toc: yes
+    toc_depth: 3
+    toc_float: yes
+  pdf_document:
+    toc: yes
+    toc_depth: '3'
+---
+
+Survey of some of the capabilities of base R statistics functionality
+
+```{r, eval = FALSE}
+require(stats)
+require(datasets)
+require(utils)
+```
+
+### Z-scores
+```{r, eval = FALSE}
+scores <- c(76,80,83,97,100)
+?scale
+scaled.scores <- scale(scores)
+hist(scores)
+scores.data.frame <- data.frame(scores,scaled.scores)
+scores.data.frame
+plot(x = scores.data.frame$scores, 
+     y = scores.data.frame$scaled.scores, 
+     type = "b",
+     xlab = "Raw Test Scores",
+     ylab = "Scaled Test Scores")
+abline(h = 0)
+mean(scores)
+abline(v = mean(scores))
+```
+
+```{r, eval = FALSE}
+z.scores <- c(scores - mean(scores))/sd(scores)
+scores.data.frame <- data.frame(scores,scaled.scores,z.scores)
+scores.data.frame
+```
+
+### Quantiles
+Here is an example using the quantile() function:
+```{r, eval = FALSE}
+?quantile
+nile.vect <- Nile
+hist(nile.vect, main = "", xlab = "Nile river discharge volume")
+quantile(x = nile.vect)
+abline(v = quantile(x = nile.vect), col = "red", lwd = 2)
+```
+
+### Normality 
+
+Shaprio-Wilk test of normality
+
+Null hypothesis - data are normally distributed
+
+```{r, eval = FALSE}
+?shapiro.test
+?rbeta
+test.dat.1 <- rbeta(n = 500, shape1 = 0.5, shape2 = 5)
+hist(x = test.dat.1)
+# Test if these data are normally distributed
+shapiro.test(x = test.dat.1)
+```
+
+```{r, eval = FALSE}
+test.dat.2 <- rnorm(n = 500, mean = 0, sd = 1)
+hist(x = test.dat.2)
+# Test if these data are normally distributed
+shapiro.test(x = test.dat.2)
+```
+
+### t-test
+```{r, eval=FALSE}
+head(ToothGrowth,15)
+un.dose <- unique(ToothGrowth$dose)
+ind.1 <- which(ToothGrowth$dose == un.dose[1])
+ind.2 <- which(ToothGrowth$dose == un.dose[2])
+
+t.test(ToothGrowth$len[ind.1], ToothGrowth$len[ind.2])
+```
+
+### Linear Models
+lm() function can be used to create a simple regression model. 
+The lm() function accepts a number of arguments: 
+
+  + formula: describes the model
+    + This is "YVAR ~ XVAR" 
+    + YVAR is the dependent (predicted)
+    + XVAR is the independent (predictor)
+
+```{r, eval=FALSE}
+# Load the UNM_Enroll.csv data file
+plot(x = mtcars$wt, 
+     y = mtcars$mpg,
+     xlab = "Weight", 
+     ylab = "mpg", 
+     type = "p", 
+     las = F)
+
+model.object <- mtcars$mpg ~ mtcars$wt
+model.object
+lm(model.object)
+```
+
++ The intercept is 37.285 and the coefficient for the unemployment rate is  -5.344  
++ Therefore, the complete regression equation is mpg = 37.285 +  -5.344  * Weight. 
+
+```{r, eval=FALSE}
+# NHST
+anova(lm(model.object))
+summary(lm(model.object))
+pred.y.vals <- predict(lm(model.object))
+plot(x = mtcars$wt, 
+     y = mtcars$mpg,
+     xlab = "Weight", 
+     ylab = "mpg", 
+     type = "p", 
+     las = F)
+lines(x = mtcars$wt, pred.y.vals)
+```
+
+### Analysis of Variance
+```{r, eval=FALSE}
+# ANOVAs are linear models with categorical predictors
+head(ToothGrowth)
+anova.model.object <- ToothGrowth$len ~ ToothGrowth$dose
+anova(lm(anova.model.object))
+```

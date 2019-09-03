@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+<meta name="author" content="Robert Leaf" />
+
+
+<title>index.utf8.md</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/united.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">R shortcourse</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="01.Rstudio.and.R.html">R and Rstudio</a>
+</li>
+<li>
+  <a href="02.Getting.Started.html">Getting Started</a>
+</li>
+<li>
+  <a href="03.Working.html">Working in R</a>
+</li>
+<li>
+  <a href="04.Funct.html">R Functionality</a>
+</li>
+<li>
+  <a href="05.Developing.html">Developing Code</a>
+</li>
+<li>
+  <a href="06.Parametric.html">Parametric Statistics</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+
+</div>
+
+
+<div id="r-programming-shortcourse" class="section level1">
+<h1>R Programming Shortcourse</h1>
+<p>This course is a first class in the R programming language focusing on basic syntax and plotting using base functions.</p>
+<div id="rstudio" class="section level3">
+<h3>RStudio</h3>
+<ul>
+<li>Multi-window structure</li>
+<li>Script Editor</li>
+<li>Console</li>
+<li>Files tab</li>
+<li>Plots tab</li>
+<li>Packages tab</li>
+<li>Help tab</li>
+<li>History tab</li>
+<li>Environment tab</li>
+</ul>
+</div>
+<div id="importing-exporting-and-saving-data-in-r" class="section level3">
+<h3>Importing, exporting and saving data in R</h3>
+<ul>
+<li>Report the working directory to the workspace</li>
+<li>Change the working directory using the command line</li>
+<li>Setting the working directory using the “Session” dropdown in RStudio</li>
+<li>Setting a default working directory using the “tools” dropdown via RStudio</li>
+<li>Determine contents of the working directory</li>
+<li>Import data using URL</li>
+<li>Import local data</li>
+<li>Looking at the entire data set may be cumbersome</li>
+<li>Exploring data - structure</li>
+<li>Exploring data - summary</li>
+<li>Examine data using head and tail function</li>
+<li>Many, many data types can be imported…</li>
+<li>Specialized data import often requires specialized packages</li>
+<li>Native files in .RData.</li>
+<li>.csv is a generic data structure</li>
+<li>Excercises</li>
+</ul>
+</div>
+<div id="r-syntax" class="section level3">
+<h3>R Syntax</h3>
+<ul>
+<li>Working in the console</li>
+<li>Some basic syntax to get you started!</li>
+<li>Syntax Exercise 1.0</li>
+<li>Syntax Practice 2.0</li>
+<li>Common arithmetic operators are</li>
+<li>Arithmetic operators examples</li>
+<li>Arithmetic operators practice</li>
+<li>The common logical operators in “R” are</li>
+<li>Logical operators examples - return T and F</li>
+<li>Combine logical operators with “which” -return index values</li>
+<li>Logical operators Practice</li>
+</ul>
+</div>
+<div id="dealing-with-missing-data-na-and-not-a-number-nan" class="section level3">
+<h3>Dealing with Missing Data (NA) and Not a Number (NaN)</h3>
+<ul>
+<li>The “is.na” function and the “na.rm”" argument</li>
+<li>Dealing with missing values in data frames and matrices</li>
+</ul>
+</div>
+<div id="scripting-and-debugging-error-messages-and-warnings" class="section level3">
+<h3>Scripting and Debugging (Error Messages and Warnings)</h3>
+<ul>
+<li>Debugging</li>
+<li>Warnings</li>
+<li>Errors</li>
+<li>Strategies for correcting errors</li>
+<li>Practice</li>
+</ul>
+</div>
+<div id="introduction-to-base-r-data-classes" class="section level3">
+<h3>Introduction to base R data classes</h3>
+<ul>
+<li>Numeric and integral vectors</li>
+<li>Data Frames</li>
+<li>Matrices</li>
+<li>Lists</li>
+<li>Logical elements</li>
+</ul>
+</div>
+<div id="interogate-values-in-various-data-classes" class="section level3">
+<h3>Interogate values in various data classes</h3>
+<ul>
+<li>Generic indexing</li>
+<li>Indexing using row and column indexing</li>
+<li>Subset various data classes using $</li>
+<li>Review: Create an index using logicals and the “which” function</li>
+<li>Logical operators Practice</li>
+</ul>
+</div>
+<div id="r-functions" class="section level3">
+<h3>R Functions</h3>
+<ul>
+<li>Here is an example using the sample() function</li>
+<li>Practice</li>
+</ul>
+</div>
+<div id="loops" class="section level3">
+<h3>Loops</h3>
+<ul>
+<li>The basic structure</li>
+</ul>
+</div>
+<div id="logic-if-else-and-ifelse" class="section level3">
+<h3>Logic: if, else, and ifelse</h3>
+<ul>
+<li>First let’s do some more basic logical practice.</li>
+<li>Practice logical subsetting by answering these questions</li>
+<li>If, else, and ifelse</li>
+<li>Practice</li>
+</ul>
+</div>
+<div id="data-visualization-in-r" class="section level3">
+<h3>Data Visualization in R</h3>
+<ul>
+<li>How Plot Functions Work</li>
+<li>Lets look at some examples of basic plots in R</li>
+<li>Hist()</li>
+<li>Plot()</li>
+<li>Boxplot()</li>
+<li>Practice</li>
+<li>Adding Error Bars</li>
+<li>Additional Plotting</li>
+</ul>
+</div>
+<div id="advanced-data-visualization-in-r" class="section level3">
+<h3>Advanced Data Visualization in R</h3>
+<ul>
+<li>Let’s use the familiar “trees” dataset in R to advance our data visualization skills</li>
+<li>Let’s plot the height of a tree as a function of its girth</li>
+<li>Jumping in the deep end</li>
+<li>mtext()</li>
+<li>text()</li>
+<li>legend()</li>
+<li>Plot Activity 1</li>
+<li>Plot Activity 2</li>
+<li>Super Advanced Data Plotting</li>
+<li>Practice</li>
+</ul>
+</div>
+<div id="saving-images-in-r-and-r-studio" class="section level3">
+<h3>Saving Images in R and R studio</h3>
+<ul>
+<li>Exporting directly from RStudio</li>
+<li>Practice</li>
+<li>Using an R Function to export an image</li>
+<li>Example</li>
+<li>Practice</li>
+</ul>
+</div>
+<div id="introduction-to-plotting-geographic-data" class="section level3">
+<h3>Introduction to plotting geographic data</h3>
+<ul>
+<li>Intall the required packages</li>
+<li>Often we would like to display land, countours, or custom regions on the map</li>
+</ul>
+</div>
+<div id="developing-an-r-script" class="section level3">
+<h3>Developing an R Script</h3>
+<ul>
+<li>What are the components of an R script?</li>
+<li>How not to write code</li>
+</ul>
+</div>
+<div id="writing-your-own-functions" class="section level3">
+<h3>Writing your own functions</h3>
+</div>
+<div id="parameteric-statistics-in-r" class="section level3">
+<h3>Parameteric Statistics in R</h3>
+<ul>
+<li>Z-scores</li>
+<li>Quantiles</li>
+<li>Tests for normality and homogeneity of variance</li>
+<li>Test of the equality of the mean from two samples “t-test”</li>
+<li>Creating A Linear Models in R</li>
+<li>Lets increase the complexity of the model</li>
+<li>Analysis of Variance</li>
+<li>Excercises</li>
+</ul>
+</div>
+<div id="nonlinear-curve-fitting" class="section level3">
+<h3>Nonlinear Curve Fitting</h3>
+<ul>
+<li>Fitting using nls()</li>
+<li>Practice</li>
+<li>Additional Practice</li>
+</ul>
+</div>
+<div id="principal-component-analysis-pca" class="section level3">
+<h3>Principal Component Analysis (PCA)</h3>
+<ul>
+<li>Create a PCA bi-plot</li>
+</ul>
+</div>
+<div id="data-manipulation-with-dplyr" class="section level3">
+<h3>Data Manipulation with dplyr</h3>
+<ul>
+<li>Load the dplyr and tidyr package</li>
+<li>Load the Data</li>
+<li>Take a look at the data using the glimpse function</li>
+<li>Reshaping Data</li>
+<li>The seperate function is useful when you want to split one column into several columns, like a data</li>
+<li>The gather and spread functions are opposites.</li>
+<li>We can also select only data that meet a certain criteria using the filter funtion</li>
+<li>We can also select only certain columns of data to make our data frame more manageable using the select function</li>
+<li>Piping, summarizing, grouping, and mutating</li>
+<li>The group_by function groups data based on some value and the ssummarise function takes a vecotr of values and returns a value</li>
+<li>The mutate function creates a new column for every row</li>
+<li>Practice Exercise</li>
+<li>Additional practice</li>
+</ul>
+</div>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

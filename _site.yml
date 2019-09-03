@@ -1,0 +1,21 @@
+name: "R shortcourse"
+output_dir: "."
+navbar:
+  title: "R shortcourse"
+  left:
+    - text: "R and Rstudio"
+      href: 01.Rstudio.and.R.html
+    - text: "Getting Started"
+      href: 02.Getting.Started.html
+    - text: "Working in R"
+      href: 03.Working.html
+    - text: "R Functionality"
+      href: 04.Funct.html
+    - text: "Developing Code"
+      href: 05.Developing.html
+    - text: "Parametric Statistics"
+      href: 06.Parametric.html
+output:
+  html_document:
+    theme: united
+    highlight: textmate

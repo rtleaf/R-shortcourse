@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title>02.Getting.Started.utf8.md</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/united.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+  padding-left: 25px;
+  text-indent: 0;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">R shortcourse</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="01.Rstudio.and.R.html">R and Rstudio</a>
+</li>
+<li>
+  <a href="02.Getting.Started.html">Getting Started</a>
+</li>
+<li>
+  <a href="03.Working.html">Working in R</a>
+</li>
+<li>
+  <a href="04.Funct.html">R Functionality</a>
+</li>
+<li>
+  <a href="05.Developing.html">Developing Code</a>
+</li>
+<li>
+  <a href="06.Parametric.html">Parametric Statistics</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+
+</div>
+
+
+<div id="assigning-values-to-objects" class="section level3">
+<h3>Assigning values to objects</h3>
+<p><code>&lt;-</code> is the standard assignment operator. You will assign values to objects (e.g. <code>x</code>, <code>y</code>, and <code>j</code>) using this symbol. For example <code>x &lt;- 3</code> is an object with one element, <code>x</code> is assigned a value of 3.</p>
+<p><code>c</code> is a common function used for concatenation (think combine):</p>
+<pre class="r"><code>x &lt;- c(3,7,11,19)
+y &lt;- c(1,1,1,1)
+c(x,y)
+y &lt;- c(x,y,5)</code></pre>
+<p>There are a suite of functions to enter data in the console. The sequence function <code>seq</code>:</p>
+<pre class="r"><code>y &lt;- seq(from = 1, to = 10)
+y &lt;- seq(from = 1, to = 10, by = 2.5)
+y &lt;- seq(from = 1, to = 10, length.out = 22)</code></pre>
+<p>Use the function <code>rep</code> (repeat):</p>
+<pre class="r"><code>y &lt;- rep(x = 5, times = 4)
+x.value &lt;- c(2,3)
+rep(x.value, times = 3)</code></pre>
+</div>
+<div id="indexing" class="section level3">
+<h3>Indexing</h3>
+<p>Indexing is used for “interogation” and “assignment”. Interogation means to examine the value of an object. Assigment means to assign the value of an object.</p>
+<pre class="r"><code>x &lt;- c(3,7,11,19)
+# Assignment
+x[c(2,3)] &lt;- c(120,140)
+# Interogation
+x &lt;- c(3,7,11,19)
+x[3]
+x[4]</code></pre>
+<p>Extend the utility of indexing: <code>[]</code> by combining with <code>c</code>. For example to get the second and third element in the variable “x”</p>
+<pre class="r"><code>x &lt;- c(3,7,11,19)
+x[1]
+x[2]
+x[c(1,2)]
+x[c(2,1)]
+y &lt;- c(3,2,1)
+x[y]</code></pre>
+<pre class="r"><code># Extend the index using a negative sign
+y.vect &lt;- c(1,2,3,4,5,6)
+y.vect[-3]</code></pre>
+<p>Indexing practice</p>
+<table>
+<colgroup>
+<col width="8%" />
+<col width="91%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Number</th>
+<th>Excercise</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1.</td>
+<td>Can you get a + to occur on your console?</td>
+</tr>
+<tr class="even">
+<td>2.</td>
+<td>How many different ways can you create a vector labled <code>q</code> containing two 3’s and four 5’s? Try some!</td>
+</tr>
+<tr class="odd">
+<td>3.</td>
+<td>Assign a vector of four elements: 3,7,9 and 2 to <code>w</code>.</td>
+</tr>
+<tr class="even">
+<td>4.</td>
+<td>Assign the third element of <code>w</code> to <code>s</code>, where <code>s</code> is equal to 6.</td>
+</tr>
+<tr class="odd">
+<td>5.</td>
+<td>What is the length of a sequence that starts at 1.1, ends at 9.2, and has increments of 0.894?</td>
+</tr>
+<tr class="even">
+<td>6.</td>
+<td>What is the 3rd value of the sequence you created?</td>
+</tr>
+<tr class="odd">
+<td>7.</td>
+<td>Use the summary function on the sequence object you created, what is returned?</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="arithmetic-operators" class="section level3">
+<h3>Arithmetic operators</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Symbol</th>
+<th>Operation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>+</td>
+<td>addtion</td>
+</tr>
+<tr class="even">
+<td>-</td>
+<td>subtraction</td>
+</tr>
+<tr class="odd">
+<td>*</td>
+<td>multiplication</td>
+</tr>
+<tr class="even">
+<td>/</td>
+<td>division</td>
+</tr>
+<tr class="odd">
+<td>^</td>
+<td>exponentiation</td>
+</tr>
+</tbody>
+</table>
+<p>PEMDAS applies when writing R-code</p>
+<pre class="r"><code># Arithmetic operators in action:
+5 + 5 / 2
+3 * 2^2
+(3*2)^2 
+# Arithmetic operators using objects:
+z &lt;- 5
+w &lt;- c(3,7,9,2)
+s &lt;- w[3]
+z + s</code></pre>
+<p>Arithmetic operators practice Using what you know about parenthesis and PEMDAS, in one line of code do each of the following:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Number</th>
+<th>Excercise</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1.</td>
+<td>Assign the variable <code>x</code> to be a vector containing the values 5,5,6,2</td>
+</tr>
+<tr class="even">
+<td>2.</td>
+<td>Assign the variable <code>y</code> to be a vector containing the values 3,3,1,7</td>
+</tr>
+<tr class="odd">
+<td>3.</td>
+<td>Add <code>x</code> and <code>y</code></td>
+</tr>
+<tr class="even">
+<td>4.</td>
+<td>Substract <code>y</code> from <code>x</code></td>
+</tr>
+<tr class="odd">
+<td>5.</td>
+<td>Assign <code>d</code> as <code>y</code> divided by <code>x</code></td>
+</tr>
+<tr class="even">
+<td>3.</td>
+<td>Multiply <code>z</code> by <code>s</code> then add five (<code>z</code> and <code>s</code> from last practice)</td>
+</tr>
+<tr class="odd">
+<td>4.</td>
+<td>Add 5 to <code>z</code> then multilply by <code>s</code></td>
+</tr>
+<tr class="even">
+<td>5.</td>
+<td>Take <code>z</code> to the fifth power and then add 2</td>
+</tr>
+<tr class="odd">
+<td>6.</td>
+<td>Divide <code>s</code> by three, then add 33, then take that sum to the 0.5 power</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="logical-operators" class="section level3">
+<h3>Logical operators</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Symbol</th>
+<th>Operation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>&lt;</td>
+<td>less than</td>
+</tr>
+<tr class="even">
+<td>&gt;</td>
+<td>greater than</td>
+</tr>
+<tr class="odd">
+<td>&lt;=</td>
+<td>less than or equal to</td>
+</tr>
+<tr class="even">
+<td>&gt;=</td>
+<td>greater than or equal to</td>
+</tr>
+<tr class="odd">
+<td>==</td>
+<td>exactly equal to</td>
+</tr>
+</tbody>
+</table>
+<p>Logical operators are useful in indexing and subsetting data classes. They return <code>TRUE</code> and <code>FALSE</code> values.</p>
+<pre class="r"><code># logical operators examples
+y &lt;- c(2,3,4)
+w &lt;- c(3,7,9,2)
+y &gt; 1
+w == 2
+w &lt; 4 | w &gt;= 8
+w &gt; 4 &amp; w &lt;= 8</code></pre>
+<p>Combine logical operators with the function <code>which</code></p>
+<pre class="r"><code># logical operators examples
+y &lt;- c(2,3,4)
+y &gt; 1
+which(y &gt; 1)
+which(y &lt; 3)
+which(y &lt;= 3)
+y[which(y &lt;= 3)] &lt;- 0</code></pre>
+<p>Logical operators practice</p>
+<table>
+<thead>
+<tr class="header">
+<th>Number</th>
+<th>Excercise</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1.</td>
+<td>Assign a vector <code>a</code> to have six elements: 1,0,8,11,12,20</td>
+</tr>
+<tr class="even">
+<td>2.</td>
+<td>Which elements in <code>a</code> are less than five</td>
+</tr>
+<tr class="odd">
+<td>3.</td>
+<td>Which elements in <code>a</code> are greater than 13 or less than 10</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="dealing-with-missing-values" class="section level3">
+<h3>Dealing with missing values</h3>
+<ul>
+<li><p>In R, missing values are represented by “NA”.</p></li>
+<li><p>Undefined values (like dividing by zero) are represented by “NaN”, not a number. Often missing values are represented with numbers: -1, 99, -9999, etc. This is obviously a problem and should be avoided. You will likely need to use indexing prior using arithmetic operations to replace these values.</p></li>
+</ul>
+<p>The “is.na” function and the “na.rm”" argument:</p>
+<ul>
+<li><p>Sometimes we do not know whether there are missing values in our data.</p></li>
+<li><p>We can use the <code>is.na</code> function to test for missing values:</p></li>
+</ul>
+<pre class="r"><code># is.na tests for missing values
+dat.1 &lt;- c(-1,NA,1,1,-1)
+is.na(dat.1)
+which(is.na(dat.1))</code></pre>
+<p>We can use the logical <code>na.rm</code> argument to remove missing values from our data prior to executing the funciton:</p>
+<pre class="r"><code>dat.1 &lt;- c(-1,NA,1,1,-1)
+mean(dat.1)
+mean(dat.1, na.rm = T)</code></pre>
+<p>Sometimes we code no data as -1 and that can really screw things up. R does not know that -1 means “no data”. However we can replace the -1 with NA. There are many ways to do this, but here is a simple way.</p>
+<pre class="r"><code># In this example, -1 is coded as a missing data field. Think back to our logical arguments and subsetting exercises.
+dat.2 &lt;- c(2,-1,3,4,5)
+dat.2 == -1
+dat.2[dat.2 == -1]
+dat.2[dat.2 == -1] &lt;- NA </code></pre>
+<pre class="r"><code>dat.1 &lt;- c(2,NA,3,4,5)
+# is.na tests for missing values
+is.na(dat.1) 
+# returns the element(s) number in the vector that is NA
+which(is.na(dat.1))</code></pre>
+</div>
+<div id="data-classes" class="section level3">
+<h3>Data classes</h3>
+<pre class="r"><code># Create a numeric vector using the concatenate function
+y.vect &lt;- c(2,3,4)
+y.vect
+class(y.vect)
+length(y.vect)</code></pre>
+<pre class="r"><code># Create a numeric vector using the replicate function
+y.vect &lt;- rep(x = 2, times = 4)
+y.vect
+class(y.vect)</code></pre>
+<pre class="r"><code># Create a numeric vector the sequence function
+y.vect &lt;- seq(from = 1, to = 12)
+y.vect
+class(y.vect)</code></pre>
+<pre class="r"><code># Create a numeric vector the sequence function
+y.vect &lt;- seq(from = 1, to = 12, by = 3.4)
+y.vect
+class(y.vect)</code></pre>
+<p>Class Data Frames</p>
+<pre class="r"><code># Create a data frame using the &quot;data.frame&quot; function
+site.name &lt;- c(rep(&quot;Site.01&quot;,3),rep(&quot;Site.02&quot;,3))
+density &lt;- rep(x = 2.3, times = length(site.name))
+abundance &lt;- seq(from = 14.5, to = 19.8, length.out = length(site.name))
+sampled. &lt;- c(F, T, F, F, T, F)
+y.data.frame &lt;- data.frame(site.name, density, abundance, sampled.)
+y.data.frame
+class(y.data.frame)</code></pre>
+<p>Class Matrices</p>
+<pre class="r"><code># Use the matrix function
+y.mat &lt;- matrix(data = c(2,3,4,5,6,7), nrow = 2, ncol = 3, byrow = FALSE)
+y.mat
+class(y.mat)
+length(y.mat)
+dim(y.mat)</code></pre>
+<pre class="r"><code># Use the matrix function
+y.mat &lt;- matrix(data = c(2,3,4,5,6,7), nrow = 2, ncol = 3, byrow = TRUE)
+y.mat
+class(y.mat)</code></pre>
+<p>Class Lists</p>
+<pre class="r"><code># Create the list
+y.list &lt;- list(site.name, density, abundance)
+y.list
+class(y.list)</code></pre>
+<pre class="r"><code># Create list with variable names
+y.list &lt;- list(site.name = site.name, density = density, abundance = abundance)
+y.list
+class(y.list)
+length(y.list)</code></pre>
+<p>Class Logical</p>
+<pre class="r"><code># Create a vector of logical elements
+y.vect
+y.vect == 3.2
+y.log &lt;- c(y.vect == 3.2)
+class(y.log)</code></pre>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

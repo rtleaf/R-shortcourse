@@ -1,0 +1,856 @@
+---
+output:
+  html_document:
+    toc: yes
+    toc_depth: 3
+    toc_float: yes
+  pdf_document:
+    toc: yes
+    toc_depth: '3'
+---
+### What are the components of an R script?
+
+As a new programmer you may not foresee that soon you will have many hundreds and thousands of lines of code spread across multiple files. To organize and be able to revisit this code you will want to begin early in your programming 
+
+Header:
+
+1. Name (the author of the code including contact info)
+2. Date (helps you organize scripts)
+3. Purpose (what does this accomplish)
+4. Version number (you may be annotating the same code over many years)
+4. Line by line annotation
+
+```{r}
+# R. Leaf   July 29, 2016
+# v04
+# Script for R shortcourse. The script has the following components:
+
+# 1. Documentation of scripts
+# 2. Demonstration of writing code
+# 3. Discussion of basic statistical tools
+# 4. Etc., etc...
+
+# Some text narrative that describes the sources, motivations, and citations. e.g.
+# Crawley, Michael J. Statistics: an introduction using R. John Wiley & Sons, 2014.
+```
+
+Excecutable, annotated, organized code
+
+Tidy and well-organized
+```{r}
+# Code to keep workspace clean
+# Functions ls() and rm()
+?ls
+?rm
+```
+
++ cntrl-I short cut.
++ ALWAYS type parentheses, braces, and brackets in pairs.
++ Avoid naming object with the names of functions in base R or R packages.
++ Annotate excessively
++ Script in the console, execture small pieces of code then 
+
+Order matters:
+
++ Because R is an "interpreted language" objects must be loaded into the environment prior to
+using it.
++ Some languages involve compiling the code - in that case order generally does not matter.
++ Therefore, define object (data) and parameters in the very top of your script.
+
+Use meaningful variable names:
+
++ Variable names (e.g. x, g., and y are not meaningful).
++ Script file names "final.r" "your.name.r" are not meaningful.
++ Consider adopting a variable naming structure using meaningful abbreviations
+    
+    + ".vec"
+    + ".df"
+    + ".list"
+
+Keep directory structure flexible:
+
++ Hardcoding means that your code cannot be shared.
++ Ex. a harcoded system path to your machine will not work on someone else's machine.
++ "**load()**" for example should not have a hardcoded path.
+
+### How not to write code:
+
++ Don't use a script editor and write large, multi-line chunks of nested functions.
++ Run this code, untested, and backtrack to discover and remedy errors.
+
+Better programming practice: 
+A biologists humble advice about how to code in any programming language
+
++ Trade elegance for simplicity.
++ Use a pencil and paper to write pseudocode "Broekow: Know what you are doing"
++ This will be your blue print so you know where you are going.
++ Each script and function will have a single or set of related objectives.
++ These objectives will be clearly annotated in the header.
++ Code small pieces (one or two functions) and assign the output to meaningful variable names.
++ Keep the workspace clean by discarding objects (object, functions) that are created and will not be used again.
++ Don't be afraid to start over.
+
+<Br> 
+
+# Writing your own functions
+
+Why would we be interested in writing our own functions?
+
++ Even with thousands of packages you will need ad hoc approaches in your work.
++ Many packages and associated functions are not actively maintained.
++ R is updated and the package with your function of interest may not be.
++ Some functions, in some packages, may not work with the idiosyncracies of your data.
++ Packages are of incosistent quality in terms of documentation.
++ Error trapping may not be sufficient.
+
++ User-made functions help keep the workspace clean.
++ Extraneous, unwantedobjects are not created and lurking.
+
+From a "clean and tidy" perspective functions help keep complex code organized.
+
+Often we do the same statistical and mathematical operations over and over again.
+
+I recommend having a directory of well-annotated user-created scripts with meaningful file names.
+
+Anatomy of a function:
+
+```{r}
+function.name <- function(x)
+  {   
+  # braces are used to enclose the function - start open brace
+  # computational operation that only deals with function argument x
+  # "value to return"" is calculated
+  #object value is created that can be of any data class.
+  return(value)
+  }   # braces are used to enclose the function - end closed brace   
+```
+
+<Br>
+
+1. Function name
+  + A meaningful descriptor of the function.
+  + Name does must not already exist in base R or contributed R packages.
+  + So, "sum", "mean", "length" are poor function names
+2. function(x)
+  + "function" is a function that takes any number of arguments.
+3. Someobject or set ofobjects is computed and these are returned to the user.
+  + The function "return" is used.
+
+Lets examine the structure of a function:
+
++ function is called "command.name" that does something. 
++ The purpose is not important - for now we focus on teh anatomy of the command.name call
+
+command.name(measurement, 
+             argument1 = TRUE,
+             argument2 = 3, 
+             argument3= "vals")
+
++ "command.name" is the name of the command - these are specific to the program
+and case-sensitive
+
++ "measurement" is a vector or column of data (numerical values or measurements) that
+you want to analyze, the user assigns these.
+
++ argument1 is some "logical" argument. The default value is "True"
+
++ argument2 is some "numeric" argument. The default value is "3"
+
++ argument3 is some "character" argument. The default value is "vals"
+
+
+Example:
+
++ We may be interested in calculating the standard error of the mean.
++ Surprisingly this function is not in base R
+
+First step: 
+
+  + Blueprint
+    + Whatobjects are needed?
+    + What parameters are created?
+    + Will we need to import packages from outside base R?
+    
+Second step:
+
+  + Create a script that will calculate the standard error of the mean.
+  + We will first create some normally distributed data:
+```{r}
+?rnorm
+nums = rnorm(n = 25, mean=100, sd=15)
+```    
+
+  + Examine the data using a figure:
+```{r}
+?hist
+hist(x = nums)
+```    
+
+What quantities will we need to calculate the standard error of the mean?
+
+1. The arithmetic mean of the data vector
+2. The variance of the data vector
+3. The number of elements in the data vector
+```{r}
+?stats::var
+stats::var(nums)
+
+?length
+length(nums)
+
+```    
+
+Now that we:
+
+1. Have the components of what we need 
+2. Understand them
+3. Have inspected the output
+We can proceed.
+
+```{r}
+var.num   <- var(nums)
+len.num   <- length(nums)
+
+sem <- sqrt(var.num/len.num)   
+```    
+
+Lets translate the above script into a generic function.
+
+Clear workspace
+```{r}
+rm(list = ls())   
+```    
+
+Check environment tab to ensure that there are no lurkingobjects 
+```{r}
+ls()   
+```       
+    
+Check to make sure that our proposed function name "sem.fun" does not exist
+```{r}
+?sem.fun   
+```  
+
+```{r}
+sem.fun = function(x)
+{
+  var.x <- var(x)
+  len.x <- length(x)
+sem.val <- sqrt(var.x/len.x)
+return(sem.val)
+}
+``` 
+
+Lets expand this basic code:
+
+1. How can we make this code robust to missing values?
+  + How do the length and var functions deal with NA?
+  + Test them to ensure you know what is being calculated
+2. What if we want a histogram returned as well as our calculated values?
+3. What if we want to return a multi-element object? (hint: use list in the return function)
+  + This list will include:
+    1. The original data vector
+    2. Which if any of the values is/are NA
+    3. Which of the values are not NA
+    4. The mean of the data vector
+4. Save this function with proper and appropriate annotation.
+
+Your first step is to develop a robust script - then translate into a function.
+
+<Br> 
+
+# Parameteric Statistics in R
+
+Last session will be to provide a survey (brief and superificial) of some of the capabilities of base R statistics functionality:
+
+```{r}
+require(stats)
+require(datasets)
+```
+
+Topics:
+
+1. Measures of position
+ + Z-scores
+ + Quantiles
+
+2. Test of the equality of the mean from one or two samples
+
+3. Linear models
+  + Simple linear regression
+  + Multiple linear regression
+  + ANOVA
+
+### Z-scores
+```{r}
+scores <- c(76,80,83,97,100)
+?scale
+scaled.scores <- scale(scores)
+hist(scores)
+scores.data.frame <- data.frame(scores,scaled.scores)
+scores.data.frame
+plot(x = scores.data.frame$scores, 
+     y = scores.data.frame$scaled.scores, 
+     type = "b",
+     xlab = "Raw Test Scores",
+     ylab = "Scaled Test Scores")
+abline(h = 0)
+mean(scores)
+abline(v = mean(scores))
+```
+
+<Br>
+
+```{r}
+z.scores <- c(scores - mean(scores))/sd(scores)
+scores.data.frame <- data.frame(scores,scaled.scores,z.scores)
+scores.data.frame
+```
+
+<Br>
+
+### Quantiles
+#### Here is an example using the quantile() function:
+
+The dataset will be using is titled "Nile" and is the flow of the Nile River
+```{r}
+?quantile
+nile.vect <- as.numeric(Nile)
+hist(nile.vect, main = "", xlab = "Nile river discharge volume")
+quantile(x = nile.vect)
+abline(v = quantile(x = nile.vect), col = "red", lwd = 2)
+```
+
+<Br>
+
+### Tests for normality and homogeneity of variance
+
+Shaprio-Wilk test of normality
+
+Null hypothesis - data are normally distributed
+
+```{r}
+?shapiro.test
+?rbeta
+test.dat.1 <- rbeta(n = 500, shape1 = 0.5, shape2 = 5)
+hist(x = test.dat.1)
+shapiro.test(x = test.dat.1)
+```
+
+<Br>
+
+```{r}
+?rnorm
+test.dat.2 <- rnorm(n = 500, mean = 0, sd = 1)
+hist(x = test.dat.2)
+shapiro.test(x = test.dat.2)
+```
+
+<Br>
+
+```{r, eval=FALSE}
+ecol.data <- read.csv("substrate.csv")
+head(ecol.data,15)
+hist(x = ecol.data$Indicator.A)
+```
+
+<Br>
+
+### Test of the equality of the mean from two samples "t-test"
+#### Create vectors from the rexam data.
+
+```{r, eval=FALSE}
+head(ecol.data)
+un.substrate <- unique(ecol.data$Substrate)
+un.substrate[1]
+un.substrate[2]
+ind.1 <- which(ecol.data$Substrate == un.substrate[1])
+ind.2 <- which(ecol.data$Substrate == un.substrate[2])
+
+ecol.data$Indicator.A[ind.1]
+ecol.data$Indicator.A[ind.2]
+
+t.test(ecol.data$Indicator.A[ind.1], ecol.data$Indicator.A[ind.2])
+```
+
+<Br>
+
+### Creating A Linear Models in R
+
+lm() function can be used to create a simple regression model. 
+The lm() function accepts a number of arguments: 
+
+  + formula: describes the model
+    + This is "YVAR ~ XVAR" 
+    + YVAR is the dependent (predicted)
+    + XVAR is the independent (predictor)
+
+```{r, eval=FALSE}
+# Load the UNM_Enroll.csv data file
+unm.data <- read.csv("UNM_Enroll.csv")
+plot(x = unm.data$UNEM, 
+     y = unm.data$ROLL, 
+     xlab = "Percent Unemployment", 
+     ylab = "Enrollment", 
+     type = "p", 
+     las = F)
+
+model.object <- unm.data$ROLL ~ unm.data$UNEM
+model.object
+lm(model.object)
+```
+
++ The intercept is 3957 and the coefficient for the unemployment rate is 1134. 
+
++ Therefore, the complete regression equation is Fall Enrollment = 3957 + 1134 * Unemployment Rate. 
+
++ The predicted fall enrollment for the University of New Mexico will increase by 1134 students for every one percent increase in the unemployment rate. 
+
++ Suppose that our research question asks what the expected fall enrollment is, given this year's unemployment rate of 9%. 
+
+```{r, eval=FALSE}
+plot(x = unm.data$UNEM, 
+     y = unm.data$ROLL, 
+     xlab = "Percent Unemployment", 
+     ylab = "Enrollment", 
+     type = "p", 
+     las = F)
+abline(v = 9)
+```
+
+We can use the regression equation to calculate the answer to this question.
+
+```{r, eval=FALSE}
+# NHST
+anova(lm(model.object))
+summary(lm(model.object))
+pred.y.vals <- predict(lm(model.object))
+plot(x = unm.data$UNEM, 
+     y = unm.data$ROLL, 
+     xlab = "Percent Unemployment", 
+     ylab = "Enrollment", 
+     type = "p", 
+     las = F)
+
+lines(x = unm.data$UNEM, pred.y.vals)
+```
+
+<Br>
+
+### Lets increase the complexity of the model:
+#### Multiple linear regression
+
+```{r, eval=FALSE}
+mv.model.object <- unm.data$ROLL ~ unm.data$UNEM + unm.data$HGRAD + unm.data$INC
+
+mv.model.object
+lm(mv.model.object)
+summary(lm(mv.model.object))
+```
+
+<Br>
+
+### Analysis of Variance
+
+```{r, eval=FALSE}
+# ANOVAs are linear models with categorical predictors
+ecol.data <- read.csv("substrate.csv")
+head(ecol.data)
+anova.model.object <- ecol.data$Indicator.A ~ ecol.data$Substrate
+anova(lm(anova.model.object))
+```
+
+<Br>
+
+### Excercises 
+
++ Read in the "hybrid_reg.csv" file
++ Make a histogram of the car data characteristic "accelrate"
++ Make a histogram of the scaled car data characteristic "accelrate"
++ What is the 33 and 66% quantile of msrp for the car data?
++ Use a t-test to determine if the mean msrp of "SUV" is significantly greater than the mean msrp of "MV"
++ Use a linear model to determine the relationship of msrp as a function of "accelerate" and "mpg"
+
+<Br>
+
+
+```{r, eval=FALSE}
+car.dat <- read.csv("hybrid_reg.csv")
+hist(car.dat$accelrate)
+hist(scale(car.dat$accelrate))
+quantile(car.dat$msrp)
+quantile(car.dat$msrp, probs = c(0.33,0.66))
+
+t.test(subset(car.dat$msrp, car.dat$class == "SUV"),
+       subset(car.dat$msrp, car.dat$class == "MV"))
+       
+lm(msrp ~ accelrate + mpg, data = car.dat)
+anova(lm(msrp ~ accelrate + mpg, data = car.dat))
+```
+
+<Br>
+
+# Nonlinear Curve Fitting
+
+R is a great tool for model fitting in general. In this lesson we will use a built in function `nls()` to fit nonlinear models. There are other model fitting functions (e.g `optim()`). The example we will use to demonstrate nonlinear model fitting is the von Bertalanffy growth function (VBGF). The VBGF is ubiquitous in fisheries biology and is a good model to practice with. 
+
+We will use the life.histor Rdata file for this exercise. 
+
+```{r, eval=FALSE}
+life.history.dat <- read.csv("fishdata.csv")
+```
+
+The first step in any model fitting exercise is to plot the data. In this example we want to plot TL as a function of age. 
+
+```{r, eval=FALSE}
+plot(TL ~  Age, data = life.history.dat) #notice the different way I set up the plot function
+```
+
+The version of the VBGF we will be using has two parameters: *Linf* and *k*. *Linf* is the average maximum total length and *k* is the growth rate coefficient. The model equation (without error term) is:
+
+Lt = Linf * (1-e^(-kt))
+
+Lt is the length-at-age age t
+
+###Fitting using nls()
+
+We will use the `nls()` function to execute the model fitting. If you do a `?nls` you will see that `nls()` has several function arguments. Formula is the function form of the model being fit and start is a vector of values to use as initial values for the parameters to be optimized. 
+
+```{r, eval=FALSE}
+model.fit <- nls(TL ~ linf * (1-exp(-k*Age)), 
+                 start = c(linf = 500, k = 0.2), 
+                 data = life.history.dat)
+
+# we can use the summary function to look at the summary of our model object. 
+
+model.fit.summ <- summary(model.fit)
+model.fit.summ
+
+# we can also use the confint() function to get the 95% (or any level) confidence intevals of the parameters
+
+confint(model.fit)
+
+
+```
+
+It is always a good idea to plot the model to visually analyze the fit to the data. I like using the `curve()` function to accomplish this. 
+
+
+```{r, eval=FALSE}
+#first, extract the parameter estimates from the model fitting summary (remember indexing!)
+
+linf.est <- model.fit.summ$coefficients[1,1]
+k.est <- model.fit.summ$coefficients[2,1]
+
+#use the curve function to plot the curve, use add = T to add it to the same plot.
+plot(TL ~  Age, data = life.history.dat)
+curve(linf.est * (1-exp(-k.est*x)), 
+      from = 0, to =  10,
+      lwd= 3, add = T)
+
+#visually the model looks good. We could aslo compare models using the AIC() function if we were fitting more than one model to the same data
+
+AIC(model.fit)
+
+```
+
+<Br>
+
+###Practice
+
+Fit a power model (Weight = a*TL^b) to the weight and length data in the life.history.dat dataset. 
+
+<Br>
+
+
+```{r, eval=FALSE}
+#The weight-a-length relationship is W = aL^b
+
+plot(life.history.dat$SL, life.history.dat$WT)
+
+plot(WT ~ TL, data = life.history.dat)
+
+#execute model fitting
+w.TL.fit <- nls(WT ~ a * TL^b, 
+                start = c(a = 0.00001, b = 3),
+                data = life.history.dat) 
+
+confint(w.TL.fit)
+w.TL.summ <- summary(w.TL.fit)
+w.TL.summ
+
+a.est <- w.TL.summ$coefficients[1,1]
+b.est <- w.TL.summ$coefficients[2,1]
+
+lines(x = seq(200,600), 
+      y = a.est * seq(200,600)^b.est,
+      lwd = 2, col = "blue")
+
+```
+
+<Br>
+
+###Additional Practice
+
+1. Fit a logistic model the TL at Age data for each sex in life.history.dat TL ~ Linf/(1-e^(-k*Age))
+
+<Br>
+
+# Principal Component Analysis (PCA)
+
+Last session will be to provide a survey (brief and superificial) of some of the capabilities of base R statistics functionality:
+
+```{r, eval=FALSE}
+require(utils)
+require(stats)
+setwd("C:/Users/w906282/Dropbox/Classes/R course")
+```
+
+###Create a PCA bi-plot
+
+```{r, eval=FALSE}
+scian.dat <- utils::read.csv("C:/Users/w906282/Dropbox/Classes/R course/Scianidae Table Data -- Medians.csv")
+head(scian.dat)
+scian.dat <- scian.dat[which(complete.cases(scian.dat)),]
+lab.dat <- scian.dat[,2]
+num.dat <- scian.dat[,3:10]
+```
+
+```{r, eval=FALSE}
+SDat_PCA <- stats::princomp(num.dat, cor = TRUE,scores = T, na.action = na.exclude)
+summary(SDat_PCA)
+loadings(SDat_PCA)  ## note that blank entries are small but not zero
+plot(SDat_PCA)
+biplot(SDat_PCA)
+```
+
+<Br>
+
+# Data Manipulation with dplyr
+
+In this lesson we will practice manipulating data with the *dplyr* package. We will also use the *tidyr* package for some data manipulation
+
+### Load the dplyr and tidyr package
+
+
+```{r, eval=FALSE}
+library("dplyr")
+library("tidyr")
+```
+
+<Br>
+
+### Load the Data
+
+In this lesson we will use the *life.history.dat* R data file and the CSV file "hybrid_reg.csv". We will also make up dummy data for some functions.
+
+```{r, eval=FALSE}
+hybrid.dat <- read.csv(file.choose()) #hybrid data set
+load(file = "life.history.rda") #make sure your working directory is correct
+```
+
+<Br>
+
+### Take a look at the data using the `glimpse` function
+
+The "life.history.dat" dataset is a simulated data set of information about individual fish caught. The "hybrid.dat" dataset is one I found on the internet. It includes information on 154 hybrid model cars. The glimpse function is like the `print` or `head` functions only the columns run down the page. This makes it easier to see all of the columns in a data frame. This function is especially useful when data frames have lots of columns. 
+
+```{r, eval=FALSE}
+glimpse(life.history.dat)
+head(life.history.dat)
+glimpse(hybrid.dat)
+head(hybrid.dat)
+```
+
+We will now go through a series of different functions in the *dplyr* and *tidyr* packages. These packages have a tremendous amount of capability and we are only scratching the surface of what they can do. 
+
+### Reshaping Data
+
+The first thing we will do is create a simple data frame call *env.dat*. In the data frame we have three stations with two temperature readings: top (t) and bottom (b). We also have the depth at the station and the date the station was sampled.
+
+```{r}
+env.data <- data.frame(station.num = c(320,321,324),
+                       t = c(25,32,27), b = c(16,23,18), depth = c(3,4.5,6), date = c("06/05/2014", "07/18/2013", "08/14/2015"))
+```
+
+<Br>
+
+### The `seperate` function is useful when you want to split one column into several columns, like a data
+```{r, eval=FALSE}
+#seperate the date column into three columns ofmonth, day and year
+separate(env.data, date, c("m","d","y")) 
+```
+
+<Br>
+
+### The `gather` and `spread` functions are opposites. 
+
+The "t" and "b" columns are both measures of temperature. We can gather these columns into one column called temperature and add a column describing where in the water column the temperatures were taken. This type of data reshaping is especially useful for massaging data into a form where graphing is convenient
+
+```{r, eval=FALSE}
+env.data.2 <- gather(env.data,"water.column","temperature", t:b) #you can always name these data reshapes to a different data frame in your environment...
+env.data.2
+boxplot(temperature ~ water.column, data = env.data.2)
+
+
+```
+
+<Br>
+
+```{r, eval=FALSE}
+# this will bring us back to our original data frame. We seperated our temperature column based on the water column location...
+spread(env.data.2, water.column, temperature)
+
+#remove env.data.2 to keep your environment clean
+rm(env.data.2)
+```
+
+<Br>
+
+### We can also select only data that meet a certain criteria using the `filter` funtion
+
+```{r, eval=FALSE}
+# We will now use the life.history.dat dataset
+# We only want female fish now (SEX == 1)
+head(filter(life.history.dat, SEX == 1))
+
+#I have nested the filter funciton in the head function so I only view the first few rows and not all of the rows...
+```
+
+<Br>
+
+### We can also select only certain columns of data to make our data frame more manageable using the `select` function
+```{r, eval=FALSE}
+
+#choose only certain columns
+head(select(life.history.dat, AGE, SEX, TL))
+
+#select all columns except ID
+head(select(life.history.dat, -ID))
+
+#I have nested the select funciton in the head function so I only view the first few rows and not all of the rows...
+
+```
+
+<Br>
+
+### Piping, summarizing, grouping, and mutating
+
+The real strength of the *dplyr* package is its ability to perform data analysis and manipulation using piping, summarizing, grouping, and mutating. Piping uses the symbol **%>%** and passes the object on the left hand side as the fisrt argument of the function on the left hand side. This allows you to string code together and make it more readable. 
+
+I like to think of the following procedures as some form of "split, apply, combine". We have a data set that we want to *split*, we then want to *apply* some function, and then *combine* the results.
+
+
+```{r, eval=FALSE}
+#piping example
+life.history.dat %>% head()
+```
+
+<br>
+
+### The `group_by` function groups data based on some value and the s`summarise` function takes a vecotr of values and returns a value
+```{r, eval=FALSE}
+#summarizing data
+
+life.history.dat %>% group_by(AGE, SEX) %>% summarise(mean.TL = mean(TL), sd.TL = sd(TL), samp.size = n())
+
+#the n function is handy and returens the number of values in a vector
+life.history.dat %>% group_by(MONTH, STATION) %>% summarise(samp.size = n())
+
+#assume 0.5 hour net sets per station calculate CPUE fish/hr
+life.history.dat %>% group_by(MONTH, STATION) %>% summarize(n = n(), CPUE = n()/0.5)
+
+```
+
+<Br>
+
+### The `mutate` function creates a new column for every row
+
+Mutate is different thant summarise because it creates a new column in the original data frame. 
+```{r, eval=FALSE}
+
+#convert SL to TL using a linear function
+
+life.history.dat <- life.history.dat %>% mutate(SL = 0.98*TL - 2) 
+
+plot(SL ~ TL, data = life.history.dat)
+
+
+#add month name
+head(life.history.dat %>% mutate(month.name = month.abb[MONTH]))
+
+
+
+```
+
+<br>
+
+### Practice Exercise
+
+Use the dataset "hybrid.dat" and the *dplyr* package to answer the folling questions.
+
+1. What is the mean MPG of each class of vehicle?
+2. What is the mean MPG of each class of vehicle by year?
+3. How many vehicles in the dataset are in the "PT" category
+4. Which car in each vehicle class has the greatest MPG (hint: use the top_n() funciton in dplyr)
+5. Assuming that cars depreciate 5% each year, use the MSRP and the YEAR of each vehicle to create a new column of data which is the value of each car in 2015. 
+6. Investigat the *dplyr* package and try to manipulate the data any way you like. 
+
+<Br>
+
+```{r, eval=FALSE}
+#1
+hybrid.dat %>% group_by(class) %>% summarise(mean.mpg = mean(mpg))
+
+#2
+hybrid.dat %>% group_by(class, year) %>% summarise(mean.mpg = mean(mpg))
+
+#3
+hybrid.dat %>% filter(class == "PT") %>% summarise(samp.size = n())
+
+#4
+hybrid.dat %>% group_by(class) %>% top_n(1,mpg)
+
+#cars depreciate 15% per year, create new column of depreciated price...
+hybrid.dat <- hybrid.dat %>% mutate(years.old = 2015-year, cur.val = msrp - ((2015-year)*.05*msrp), cur.val.2 = msrp - (years.old*0.05 * msrp))
+
+glimpse(hybrid.dat)
+```
+
+<Br>
+
+### Additional practice
+
+Let's use the ChickWeight to practice some more dplyr. If you remember, the chickweight data set tracks the weight of individual chicks over time on different diets. We tried some different ways of plotting these data. Another way to approach these data would be to calculate the mean weight at time for each diet and plot those.
+
+1. Let's use dplyr to calculate the mean weight at length for each diet. 
+
+```{r, eval=FALSE}
+
+chick.wt.mean <- ChickWeight %>% group_by(Diet, Time) %>% summarise(mean.wt = mean(weight))
+```
+
+2. Use a loop to plot the mean weight at length for each treatment.
+
+```{r, eval=FALSE}
+#generate empty plot
+plot(0, xlim = range(chick.wt.mean$Time), 
+     ylim = range(chick.wt.mean$mean.wt), 
+     ylab = "Mean Weight", 
+     xlab = "Time", las = 1)
+#make a vector storing the line type for diet
+lty.vec = c(1,2,3,4)
+
+for (i in 1:4) {
+  lines(mean.wt ~ Time, dat = filter(chick.wt.mean, Diet == i), 
+        lty = lty.vec[i],
+        lwd = 3)
+}
+legend("topleft",legend = c(1,2,3,4), title = "Diet", 
+       lty = lty.vec, 
+       lwd = 3, 
+       inset = 0.05,
+       bty = "n",
+       cex = 2)
+```
+
