@@ -8,7 +8,7 @@ output:
     toc: yes
     toc_depth: '3'
 ---
-### What are the components of an R script?
+# What are the components of an R script?
 
 As a new programmer you may not foresee that soon you will have many hundreds and thousands of lines of code spread across multiple files. To organize and be able to revisit this code you will want to begin early in your programming 
 
@@ -73,7 +73,7 @@ Keep directory structure flexible:
 + Ex. a harcoded system path to your machine will not work on someone else's machine.
 + "**load()**" for example should not have a hardcoded path.
 
-### How not to write code:
+# How not to write code:
 
 + Don't use a script editor and write large, multi-line chunks of nested functions.
 + Run this code, untested, and backtrack to discover and remedy errors.
