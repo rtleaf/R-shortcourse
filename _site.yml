@@ -5,7 +5,7 @@ navbar:
   left:
     - text: "R Studio and R"
       href: 01.RStudio.and.R.html
-    - text: "Getting Started"
+    - text: "Simple Syntax"
       href: 02.Getting.Started.html
     - text: "Developing R Scripts"
       href: 03.01.developing-R-scripts.html
