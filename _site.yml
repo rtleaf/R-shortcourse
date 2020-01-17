@@ -1,25 +1,7 @@
-toc:
-  - title: "R and Rstudio"
-    subfolderitems:
-      - page: Thing 1
-        url: 01.Rstudio.and.R.html
-      - page: Thing 2
-        url: 02.Getting.Started.html
-      - page: Thing 3
-        url: 01.Rstudio.and.R.html
-  - title: "Getting Started"
-    subfolderitems:
-      - page: Piece 1
-        url: 01.Rstudio.and.R.html
-      - page: Piece 2
-        url: 01.Rstudio.and.R.html
-      - page: Piece 3
-        url: 01.Rstudio.and.R.html
-  - title: "R Functionality"
-    subfolderitems:
-      - page: Widget 1
-        url: 01.Rstudio.and.R.html
-      - page: Widget 2
-        url: 01.Rstudio.and.R.html
-      - page: Widget 3
-        url: 01.Rstudio.and.R.html
+name: "R shortcourse"
+output_dir: "."
+navbar:
+  title: "R Programming"
+  left:
+    - text: "Course Content"
+      href: Index.html
