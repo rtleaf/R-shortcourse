@@ -20,7 +20,21 @@ This course is a first class in the R programming language focusing on basic syn
  + History tab
  + Environment tab
  
-### Importing, exporting and saving data in R
+### R Syntax
+
+ + Working in the console
+ + Some basic syntax to get you started!
+ + Syntax Exercise 1.0
+ + Syntax Practice 2.0
+ + Common arithmetic operators are
+ + Arithmetic operators examples
+ + Arithmetic operators practice
+ + The common logical operators in "R" are
+ + Logical operators examples - return T and F
+ + Combine logical operators with "which" -return index values
+ + Logical operators Practice
+ 
+ ### Importing, exporting and saving data in R
 
  + Report the working directory to the workspace
  + Change the working directory using the command line
@@ -39,19 +53,7 @@ This course is a first class in the R programming language focusing on basic syn
  + .csv is a generic data structure
  + Excercises
  
-### R Syntax
 
- + Working in the console
- + Some basic syntax to get you started!
- + Syntax Exercise 1.0
- + Syntax Practice 2.0
- + Common arithmetic operators are
- + Arithmetic operators examples
- + Arithmetic operators practice
- + The common logical operators in "R" are
- + Logical operators examples - return T and F
- + Combine logical operators with "which" -return index values
- + Logical operators Practice
  
 ### Dealing with Missing Data (NA) and Not a Number (NaN)
 

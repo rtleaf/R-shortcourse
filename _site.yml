@@ -7,10 +7,8 @@ navbar:
       href: 01.RStudio.and.R.html
     - text: "Simple Syntax"
       href: 02.Getting.Started.html
-    - text: "Developing R Scripts and Functions"
-      href: 03.01.developing-R-scripts.html
     - text: "Working in R"
-      href: 03.Working.html
+      href: 03.Working.html      
     - text: "Loops and conditional statements"
       href: 04.Funct.html
     - text: "Writing Functions"
