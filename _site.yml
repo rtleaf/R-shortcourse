@@ -11,9 +11,9 @@ navbar:
       href: 03.01.developing-R-scripts.html
     - text: "Working in R"
       href: 03.Working.html
-    - text: "Writing Functions"
+    - text: "Loops and conditional statements"
       href: 04.Funct.html
-    - text: "Devloping your scripts"
+    - text: "Writing Functions"
       href: 05.Developing.html      
 output:
   html_document:
