@@ -1,12 +1,20 @@
 name: "R shortcourse"
 output_dir: "."
 navbar:
-  title: "R Programming"
+  title: "Course Content"
   left:
-    - text: "Course Content"
-      href: index.html
     - text: "R Studio and R"
       href: 01.RStudio.and.R.html
+    - text: "Getting Started"
+      href: 02.Getting.Started.html
+    - text: "R Studio and R"
+      href: 01.RStudio.and.R.html
+    - text: "R Studio and R"
+      href: 01.RStudio.and.R.html
+    - text: "R Studio and R"
+      href: 01.RStudio.and.R.html
+    - text: "R Studio and R"
+      href: 01.RStudio.and.R.html      
 output:
   html_document:
     theme: united
