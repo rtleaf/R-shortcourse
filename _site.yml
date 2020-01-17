@@ -7,14 +7,14 @@ navbar:
       href: 01.RStudio.and.R.html
     - text: "Getting Started"
       href: 02.Getting.Started.html
-    - text: "R Studio and R"
-      href: 01.RStudio.and.R.html
-    - text: "R Studio and R"
-      href: 01.RStudio.and.R.html
-    - text: "R Studio and R"
-      href: 01.RStudio.and.R.html
-    - text: "R Studio and R"
-      href: 01.RStudio.and.R.html      
+    - text: "Developing R Scripts"
+      href: 03.01.developing-R-scripts.html
+    - text: "Working in R"
+      href: 03.Working.html
+    - text: "Writing Functions"
+      href: 04.Funct.html
+    - text: "Devloping your scripts"
+      href: 05.Developing.html      
 output:
   html_document:
     theme: united
