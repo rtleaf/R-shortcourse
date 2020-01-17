@@ -5,3 +5,5 @@ navbar:
   left:
     - text: "Course Content"
       href: Index.html
+    - text: "R Studio and R"
+      href: 01.RStudio.and.R.html
