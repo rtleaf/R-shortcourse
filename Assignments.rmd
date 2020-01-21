@@ -1,0 +1,76 @@
+---
+output:
+  html_document:
+    toc: yes
+    toc_depth: 3
+    toc_float: yes
+---
+
+### Assignment 01 - Working in R
+
+Make a project called 'Assignment 01'.
+
+Then, create a function named 'LAST.initalize.proj.r' that automatically creates a directory structure outlined in (https://nicercode.github.io/blog/2013-04-05-projects/). This function will be annotated and have descriptive header information. Save this function into the 'R' directory.
+
+Change your R site profile so that this function loads every time you start R. (https://www.r-bloggers.com/fun-with-rprofile-and-customizing-r-startup/).
+
+Make a new function 'LAST.Assign.01.r', save this in the R directory. 
+
+This code in 'LAST.Assign.01.r' will do all of the following: write the entire mtcars data as a csv file to the 'data' directory, import the .csv file, selecting only the first 10 rows only. From this imported data, make a new data frame from the reduced (10 row) data set, appending a column to the data frame that is the hp per cylinder (divide hp by cyl), name this column hp.per.cyl. Print the data frame to the screen.
+
+You will turn in two files:
+
+'LAST.initalize.proj.r'
+
+'LAST.Assign.01.r'
+
+Both functions will need to run error free and accomplish the tasks for credit to be earned for Assignment 01.
+
+### Assignment 02 - Figures
+
+Make a project called 'Assignment 02'.
+
+The project will have the sterotyped directory structure described in (https://nicercode.github.io/blog/2013-04-05-projects/).
+
+You will work through the code in:
+
+https://datacarpentry.org/R-ecology-lesson/04-visualization-ggplot2.html
+
+For the challenges in the tutorial (n = 5) you will:
+
+Make a function called 'LAST.Assign.02.01.r'
+Make a function called 'LAST.Assign.02.02.r'
+Make a function called 'LAST.Assign.02.03.r'
+Make a function called 'LAST.Assign.02.04.r'
+Make a function called 'LAST.Assign.02.05.r'
+
+Note, the final '.01', '02', '03', '04', and '05' refer to each of the five challenges listed on the webpage.
+
+These functions will contain the code needed to plot each of the challenge questions and write .png files with names:
+
+'LAST.Assign.02.01.png'
+'LAST.Assign.02.02.png'
+'LAST.Assign.02.03.png'
+'LAST.Assign.02.04.png'
+'LAST.Assign.02.05.png'
+
+Have these files written to the 'figs' directory.
+
+You will turn in two files:
+
+'LAST.Assign.02.01.r'
+'LAST.Assign.02.02.r'
+'LAST.Assign.02.03.r'
+'LAST.Assign.02.04.r'
+'LAST.Assign.02.05.r'
+
+All functions will need to run error free and accomplish the tasks for credit to be earned for Assignment 02.
+
+
+### Assignment 03
+
+### Assignment 04
+
+### Assignment 05
+
+### Project

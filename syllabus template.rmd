@@ -1,0 +1,103 @@
+---
+output:
+  html_document:
+    toc: yes
+    toc_depth: 3
+    toc_float: yes
+---
+
+```{r, include=FALSE}
+options(tinytex.verbose = TRUE)
+syl.comp <- read.csv("Syllabus Components.csv")
+```
+
+### `r paste0(syl.comp$VAR2[which(syl.comp$VAR1 == "Title")])`
+
+Date: `r format(Sys.time(), '%d %B %Y')`
+
+Instructor: `r paste0(syl.comp$VAR2[which(syl.comp$VAR1 == "Instructor")])`
+
+Office: `r paste0(syl.comp$VAR2[which(syl.comp$VAR1 == "Office")])`
+
+Office Hours: `r paste0(syl.comp$VAR2[which(syl.comp$VAR1 == "Office Hours")])`
+
+Email: `r paste0(syl.comp$VAR2[which(syl.comp$VAR1 == "Email")])`
+
+Course Meeting Day and Time: `r paste0(syl.comp$VAR2[which(syl.comp$VAR1 == "Course Meeting Days")])`, `r paste0(syl.comp$VAR2[which(syl.comp$VAR1 == "Course Meeting Time")])`
+
+### Course Description and Objectives
+This course examines the fundamental concepts and techniques for programming in the R statistical programming language. Contemporary data analysis, data manipulation, data visualization, and reproducible research necessitates command of quantitative tools. Although there are many specialized and general programming languages, the R programming language offers exceptional utility for analysis and is used widely in academia, industry, and by federal and state scientific groups. The demand for skilled data analysis practitioners is rapidly growing and this course prepares you to tackle real-world data analysis challenges.
+
+The primary components of the course: 
+
+1) Introduce the basics of R programming using real world data sets
+
+The course will introduce stereotypical programming concepts, in particular code modularisation, writing and using functions, and code re-usability. We will focus on understanding software engineering concepts such as project build and code testing. Participants will establish a working knowledge of R, R Studio, and relevant packages
+
+2) Review aspects of project organization
+
+A typical data analysis project involves several many components, each including several data files and different binary scripts with code. Keeping these files organized can be challenging and requires a suite of analytical tools.
+
+3) Perform operations on vectors and understand how to use advanced functions
+
+Learn how to wrangle, analyze and visualize data using base R operations and specialized packages (e.g. tidy verse and ggplot2)
+
+4) Promote a reproducible research workflow
+
+Finally, we will examine how to  write markdown documents for high throughput data presentation which permits you to incorporate text and code into a document. 
+
+#### At the conclusion of this course: 
+Students will be able to recognize problems that can be solved using statistical programming and reproducible research approaches. The skills of sharing, automation, and organization enable making research more reproducible. By practicing and reinforcing the use of quantitative tools, participants will be better able to make insights that would otherwise be hidden.
+
+### Course Materials
+`r paste0(syl.comp$VAR2[which(syl.comp$VAR1 == "Course Materials 1")])`
+
+### Course Workload Statement
+`r paste0(syl.comp$VAR2[which(syl.comp$VAR1 == "Course Workload Statement")])`
+
+### Course Evaluation
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+require(knitr)
+gs.scale <- read.csv("Grading Scale.csv")
+names(gs.scale) <- c("Percentage", "Letter Grade")
+knitr::kable(gs.scale) %>%
+  kable_styling(bootstrap_options = "striped", full_width = T, position = "center")
+```
+
+### Grading scale
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+require(knitr)
+course.eval <- read.csv("Course Evaluation.csv")
+names(course.eval) <- c("Evaluation type",	"Number",	"Points per item",	"Total points")
+knitr::kable(course.eval) %>%
+  kable_styling(bootstrap_options = "striped", full_width = T, position = "center")
+```
+
+### Academic Support Resources
+`r paste0(syl.comp$VAR2[which(syl.comp$VAR1 == "Academic Support Resources")])`
+
+### Mental Well-Being Statement
+`r paste0(syl.comp$VAR2[which(syl.comp$VAR1 == "Mental Well-Being Statement")])`
+
+### Nondiscrimination Statement
+`r paste0(syl.comp$VAR2[which(syl.comp$VAR1 == "Nondiscrimination Statement")])`
+
+### Confidentiality and Mandatory Reporting
+`r paste0(syl.comp$VAR2[which(syl.comp$VAR1 == "Confidentiality and Mandatory Reporting")])`
+\pagebreak
+
+### Course Scheduling
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+require(knitr)
+require(kableExtra)
+course.eval <- read.csv("Course Schedule.csv")
+names(course.eval) <- c("Class Number",	"Day",	"Readings and Assignments")
+knitr::kable(course.eval) %>%
+column_spec(1, bold = T, width = "5em") %>%
+  kable_styling(bootstrap_options = "striped", full_width = T, position = "center")
+```
+
+### Academic Integrity
+`r paste0(syl.comp$VAR2[which(syl.comp$VAR1 == "Academic Integrity")])`
+
+`r paste0(syl.comp$VAR2[which(syl.comp$VAR1 == "Academic Integrity 2")])`

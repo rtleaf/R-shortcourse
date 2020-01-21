@@ -48,14 +48,6 @@ length.val(length.val == -9999) <- NA
 getwd()
 ```
 
-```{r,eval=FALSE}
-# Change the working directory using the command line
-setwd("C:\\Users\\w906282\\Desktop\\R Course\\GB NERR R Course")
-```
-
-You may also set the working directory using the "Session" dropdown in RStudio
-+ Session -> Set Working Directory
-
 Determine contents of the working directory
 ```{r, eval = FALSE}
 dir()
@@ -66,6 +58,12 @@ dir(pattern = ".html")
 # # Search for .csv files
 dir(pattern = ".csv")
 ```
+
+Organize your RStudio Projects 
+
+(https://nicercode.github.io/blog/2013-04-05-projects/)
+
+(https://www.carlboettiger.info/2012/05/06/research-workflow.html)
 
 ### .csv data
 Comma delimited files .csv files are easily imported using the command line

@@ -3,16 +3,22 @@ output_dir: "."
 navbar:
   title: "Course Content"
   left:
+    - text: "Syllabus"
+      href: syllabus-template.html 
     - text: "R Studio and R"
       href: 01.RStudio.and.R.html
-    - text: "Simple Syntax"
+    - text: "Syntax"
       href: 02.Getting.Started.html
-    - text: "Working in R"
+    - text: "Working"
       href: 03.Working.html      
-    - text: "Loops and conditional statements"
+    - text: "Loops and Conditionals"
       href: 04.Funct.html
-    - text: "Writing Functions"
-      href: 05.Developing.html      
+    - text: "Functions"
+      href: 05.Developing.html   
+    - text: "Assignments"
+      href: Assignments.html  
+    - text: "Project"
+      href: 05.Project.html   
 output:
   html_document:
     theme: united

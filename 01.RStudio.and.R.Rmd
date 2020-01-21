@@ -5,12 +5,12 @@ output:
     toc_depth: 3
     toc_float: yes
 ---
-# RStudio and R
+### RStudio and R
 Is a developer environment for coding, data management, and version control.  
 
 A primary utility of Rstudio is the use of projects.  
 
-### Multi-pane structure
+Multi-pane structure
 + Script editor  
 + Console
 + Environment and history
