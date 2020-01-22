@@ -1,5 +1,8 @@
 ---
 output:
+  pdf_document:
+    toc: yes
+    toc_depth: '3'
   html_document:
     toc: yes
     toc_depth: 3
@@ -23,14 +26,35 @@ Office Hours: `r paste0(syl.comp$VAR2[which(syl.comp$VAR1 == "Office Hours")])`
 
 Email: `r paste0(syl.comp$VAR2[which(syl.comp$VAR1 == "Email")])`
 
+Phone: `r paste0(syl.comp$VAR2[which(syl.comp$VAR1 == "Phone")])`
+
 Course Meeting Day and Time: `r paste0(syl.comp$VAR2[which(syl.comp$VAR1 == "Course Meeting Days")])`, `r paste0(syl.comp$VAR2[which(syl.comp$VAR1 == "Course Meeting Time")])`
+
+Course Meeting Location: Caylor Computer Lab, IVN, Zoom
+
+### Course Delivery Using Zoom
+
+Because students are distributed across a number of campuses and I will be traveling in the spring semester – I hoped that we could move away from using USM’s IVN system and run the class using Zoom Meetings, after our first meeting. This way, you can attend the course using your computer or mobile device in the comfort of your office, home, or when on travel.
+
+Here is the link to join our weekly Zoom Meeting
+
+https://zoom.us/j/770483868?pwd=STNSa2xHSkVQU01wb2xMQ0NHVFROdz09
+
+Meeting ID: 770 483 868
+Password: 005686
+
+Dial by your location
+
++1 646 558 8656 US (New York)
+
+After our first meeting, I hope we can move to using Zoom Meeting for our subsequent meetings. I have found the software to be very easy to use and strait forward. I would ask that you get your computer ready to use Zoom by installing the app as soon as possible.
 
 ### Course Description and Objectives
 This course examines the fundamental concepts and techniques for programming in the R statistical programming language. Contemporary data analysis, data manipulation, data visualization, and reproducible research necessitates command of quantitative tools. Although there are many specialized and general programming languages, the R programming language offers exceptional utility for analysis and is used widely in academia, industry, and by federal and state scientific groups. The demand for skilled data analysis practitioners is rapidly growing and this course prepares you to tackle real-world data analysis challenges.
 
 The primary components of the course: 
 
-1) Introduce the basics of R programming using real world data sets
+1) Introduce the basics of R programming
 
 The course will introduce stereotypical programming concepts, in particular code modularisation, writing and using functions, and code re-usability. We will focus on understanding software engineering concepts such as project build and code testing. Participants will establish a working knowledge of R, R Studio, and relevant packages
 
@@ -40,7 +64,7 @@ A typical data analysis project involves several many components, each including
 
 3) Perform operations on vectors and understand how to use advanced functions
 
-Learn how to wrangle, analyze and visualize data using base R operations and specialized packages (e.g. tidy verse and ggplot2)
+Learn how to wrangle, analyze and visualize data using base R operations and specialized packages (e.g. tidyverse and ggplot2)
 
 4) Promote a reproducible research workflow
 
@@ -51,6 +75,17 @@ Students will be able to recognize problems that can be solved using statistical
 
 ### Course Materials
 `r paste0(syl.comp$VAR2[which(syl.comp$VAR1 == "Course Materials 1")])`
+
+### Course Scheduling
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+require(knitr)
+require(kableExtra)
+course.eval <- read.csv("Course Schedule.csv")
+names(course.eval) <- c("Class Number",	"Day",	"Readings and Assignments")
+knitr::kable(course.eval) %>%
+column_spec(1, bold = T, width = "5em") %>%
+  kable_styling(bootstrap_options = "striped", full_width = T, position = "center")
+```
 
 ### Course Workload Statement
 `r paste0(syl.comp$VAR2[which(syl.comp$VAR1 == "Course Workload Statement")])`
@@ -64,6 +99,13 @@ knitr::kable(gs.scale) %>%
   kable_styling(bootstrap_options = "striped", full_width = T, position = "center")
 ```
 
+### Assignment Policy and Procedures
+`r paste0(syl.comp$VAR2[which(syl.comp$VAR1 == "Assignment Policy and Procedures")])`
+
+`r paste0(syl.comp$VAR2[which(syl.comp$VAR1 == "Assignment Policy and Procedures 2")])`
+
+`r paste0(syl.comp$VAR2[which(syl.comp$VAR1 == "Assignment Policy and Procedures 3")])`
+
 ### Grading scale
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 require(knitr)
@@ -76,6 +118,9 @@ knitr::kable(course.eval) %>%
 ### Academic Support Resources
 `r paste0(syl.comp$VAR2[which(syl.comp$VAR1 == "Academic Support Resources")])`
 
+### Academic Success
+`r paste0(syl.comp$VAR2[which(syl.comp$VAR1 == "Academic Success")])`
+
 ### Mental Well-Being Statement
 `r paste0(syl.comp$VAR2[which(syl.comp$VAR1 == "Mental Well-Being Statement")])`
 
@@ -85,17 +130,6 @@ knitr::kable(course.eval) %>%
 ### Confidentiality and Mandatory Reporting
 `r paste0(syl.comp$VAR2[which(syl.comp$VAR1 == "Confidentiality and Mandatory Reporting")])`
 \pagebreak
-
-### Course Scheduling
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
-require(knitr)
-require(kableExtra)
-course.eval <- read.csv("Course Schedule.csv")
-names(course.eval) <- c("Class Number",	"Day",	"Readings and Assignments")
-knitr::kable(course.eval) %>%
-column_spec(1, bold = T, width = "5em") %>%
-  kable_styling(bootstrap_options = "striped", full_width = T, position = "center")
-```
 
 ### Academic Integrity
 `r paste0(syl.comp$VAR2[which(syl.comp$VAR1 == "Academic Integrity")])`

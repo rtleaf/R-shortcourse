@@ -6,6 +6,29 @@ output:
     toc_float: yes
 ---
 
+### Directory structure
+```{r, eval=FALSE}
+# Report the working directory to the workspace
+getwd()
+```
+
+Determine contents of the working directory
+```{r, eval = FALSE}
+dir()
+
+# Search for .html files
+dir(pattern = ".html")
+
+# # Search for .csv files
+dir(pattern = ".csv")
+```
+
+Organize your RStudio Projects 
+
+(https://nicercode.github.io/blog/2013-04-05-projects/)
+
+(https://www.carlboettiger.info/2012/05/06/research-workflow.html)
+
 ### Scripting and Debugging
 If something is wrong in your code R will (sometimes helfpully) let you know through warnings and messages.
 
@@ -42,29 +65,6 @@ length.val(length.val == -9999) <- NA
 # What is the error message?
 ```
 
-### Directory structure
-```{r, eval=FALSE}
-# Report the working directory to the workspace
-getwd()
-```
-
-Determine contents of the working directory
-```{r, eval = FALSE}
-dir()
-
-# Search for .html files
-dir(pattern = ".html")
-
-# # Search for .csv files
-dir(pattern = ".csv")
-```
-
-Organize your RStudio Projects 
-
-(https://nicercode.github.io/blog/2013-04-05-projects/)
-
-(https://www.carlboettiger.info/2012/05/06/research-workflow.html)
-
 ### .csv data
 Comma delimited files .csv files are easily imported using the command line
 ```{r, eval = FALSE}
@@ -100,20 +100,31 @@ names(fishdata)
 ```
 
 Many, many data types can be imported...
+
 + .ncdf files
+
 + .shp files
+
 + .hdf files
+
 + .xls
+
 + many, many other proprietary data types...
 
 Specialized data import often requires specialized packages
+
 + foreign
+
 + XLConnect
+
 + RODBC
+
 + many others and likely one or more suits your specialized needs.
 
 Native files in .RData.
+
 + There are a suite of functions that can be used to work with these files.
 
 Excercises
+
 + How many .csv files are in your current directory?

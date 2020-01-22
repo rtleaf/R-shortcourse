@@ -3,6 +3,7 @@ Title,Special Topics: Data analysis using R
 Instructor,Dr. Robert Leaf
 Email,robert.leaf@usm.edu
 Office,GCRL Oceanography 119
+Phone, 2-4296
 Course Meeting Days,MW
 Course Meeting Time,4:00 to 5:15 PM
 Office Hours,Friday A.M. and by appointment
@@ -17,3 +18,11 @@ Academic Integrity 2,"Engaging in any of these behaviors or supporting others wh
 Course Materials 1,R for Data Science by G. Grolemund and H. Wickham (https://r4ds.had.co.nz/)
 Course Materials 2,
 Course Materials 3,
+Assignment Policy and Procedures,"All assigned work (Assignments and Project) will be due prior to the beginning of class on W, May 06, 2020, unless otherwise specified. Thus, all work will need to be uploaded to your personal dropbox-linked directory before 4 PM on W, May 06, 2020. You may upload your work during the semester, as you finish it, and I will check that the code runs properly, grade the assignment, and provide feedback within five business days. Work for the project has due dates listed, in this case you will upload the requested files by the due date. No late work is accepted under any circumstance."
+Assignment Policy and Procedures 2,"Assignments and project components will be turned in electronically using dropbox. Therefore all students will need a dropbox account. You may access this link if you are not familiar with the Dropbox.com application (https://help.dropbox.com/accounts-billing/create-delete/create-account). This is a free service and your memory load in the course will be exceedingly small, << 0.25 MB."
+Assignment Policy and Procedures 3,"Grades for Assignments will be either a zero or one. To receive a grade of one, all code must run on all my machine and return all required components of the assignment. You may turn in any assignment as many times as necessary to ensure that you receive credit."
+Academic Success,"The Academic Success Center at Gulf Park
+
+The Academic Success Center is located on the first floor of the Gulf Coast Library on the Gulf Park campus in Long Beach. Through peer tutors and professional support staff, the Academic Success Center offers a broad range of services including: Academic Coaching, Learning materials and electronic resources, Individual and small group tutoring, Whole class support, Workshops and seminars, Technology and multi-media support, Media labs for individual and group projects, Online and in person tutoring sessions in a variety of subjects.
+
+For more information, visit us as www.usm.edu/asc. To make an appointment, please visit www.usm.mywconline.com. If you have questions about our services, call us at 4-3346 or email us at academic.success@usm.edu."

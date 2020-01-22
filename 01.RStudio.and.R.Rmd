@@ -5,16 +5,46 @@ output:
     toc_depth: 3
     toc_float: yes
 ---
+### R installation
+
++ Open an internet browser and go to www.r-project.org.
+
++ Click the "download R" link in the middle of the page under "Getting Started."
+
++ Select a CRAN location (a mirror site) and click the corresponding link.
+
++ Click on the "Download R for (Mac) OS X" link at the top of the page.
+
++ Click on the file containing the latest version of R under "Files."
+
++ Save the .pkg file, double-click it to open, and follow the installation instructions.
+
++ Now that R is installed, you need to download and install RStudio.
+
+### RStudio installation
+
++ Go to www.rstudio.com and click on the "Download RStudio" button.
+
++ Click on "Download RStudio Desktop."
+
++ Click on the version recommended for your system, or the latest Mac version, save the .dmg file on your computer, double-click it to open, and then drag and drop it to your applications folder.
+
 ### RStudio and R
 Is a developer environment for coding, data management, and version control.  
 
-A primary utility of Rstudio is the use of projects.  
-
 Multi-pane structure
+
 + Script editor  
+
 + Console
+
 + Environment and history
+
 + Files, plots, packages and help
+
+### Projects in Rstudio
+
+https://swcarpentry.github.io/r-novice-gapminder/02-project-intro/
 
 ### Script Editor
 Allows the user to create multi-line code. It is here that you will develop your code and send it to the console. You will save your scripts as appropriately titled .r files.
@@ -50,6 +80,7 @@ install.packages("dplyr")
 For some packages you will see that "dependencies" are installed when the desired package is installed. These are the packages that the installed package needs in order to run some or all of the functions.
 
 ### Help tab
+
 This tab will be automatically selected whenever you run help code in the Console.
 
 ### History tab
@@ -57,3 +88,7 @@ The history tab keeps a record of all previous commands. This can be useful when
 
 ### Environment tab
 Displays data, their classes, and dimensions in your workspace.
+
+### Installing R packages
+
+https://www.r-bloggers.com/installing-r-packages/

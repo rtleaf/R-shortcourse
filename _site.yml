@@ -5,20 +5,20 @@ navbar:
   left:
     - text: "Syllabus"
       href: syllabus-template.html 
+    - text: "Assignments"
+      href: Assignments.html        
     - text: "R Studio and R"
       href: 01.RStudio.and.R.html
+    - text: "Working"
+      href: 03.Working.html        
     - text: "Syntax"
       href: 02.Getting.Started.html
-    - text: "Working"
-      href: 03.Working.html      
     - text: "Loops and Conditionals"
       href: 04.Funct.html
     - text: "Functions"
       href: 05.Developing.html   
-    - text: "Assignments"
-      href: Assignments.html  
-    - text: "Project"
-      href: 05.Project.html   
+    - text: "Statistics"
+      href: 06.Parametric.html        
 output:
   html_document:
     theme: united

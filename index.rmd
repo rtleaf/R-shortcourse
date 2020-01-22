@@ -45,4 +45,13 @@ This course is a first class in the R programming language focusing on basic syn
  + Compenents of and R script
  + Writing your own functions
  
-### Statistics
+### Survey of Parametric Statistics
+
+ + Z-scores
+ + Quantiles
+ + Normality
+ + t-test
+ + Linear Models
+ + Analysis of Variance
+
+

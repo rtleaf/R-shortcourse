@@ -1605,13 +1605,16 @@ div.tocify {
   <a href="syllabus-template.html">Syllabus</a>
 </li>
 <li>
+  <a href="Assignments.html">Assignments</a>
+</li>
+<li>
   <a href="01.RStudio.and.R.html">R Studio and R</a>
 </li>
 <li>
-  <a href="02.Getting.Started.html">Syntax</a>
+  <a href="03.Working.html">Working</a>
 </li>
 <li>
-  <a href="03.Working.html">Working</a>
+  <a href="02.Getting.Started.html">Syntax</a>
 </li>
 <li>
   <a href="04.Funct.html">Loops and Conditionals</a>
@@ -1620,10 +1623,7 @@ div.tocify {
   <a href="05.Developing.html">Functions</a>
 </li>
 <li>
-  <a href="Assignments.html">Assignments</a>
-</li>
-<li>
-  <a href="05.Project.html">Project</a>
+  <a href="06.Parametric.html">Statistics</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -1641,6 +1641,22 @@ div.tocify {
 </div>
 
 
+<div id="directory-structure" class="section level3">
+<h3>Directory structure</h3>
+<pre class="r"><code># Report the working directory to the workspace
+getwd()</code></pre>
+<p>Determine contents of the working directory</p>
+<pre class="r"><code>dir()
+
+# Search for .html files
+dir(pattern = &quot;.html&quot;)
+
+# # Search for .csv files
+dir(pattern = &quot;.csv&quot;)</code></pre>
+<p>Organize your RStudio Projects</p>
+<p>(<a href="https://nicercode.github.io/blog/2013-04-05-projects/" class="uri">https://nicercode.github.io/blog/2013-04-05-projects/</a>)</p>
+<p>(<a href="https://www.carlboettiger.info/2012/05/06/research-workflow.html" class="uri">https://www.carlboettiger.info/2012/05/06/research-workflow.html</a>)</p>
+</div>
 <div id="scripting-and-debugging" class="section level3">
 <h3>Scripting and Debugging</h3>
 <p>If something is wrong in your code R will (sometimes helfpully) let you know through warnings and messages.</p>
@@ -1665,22 +1681,6 @@ mean(x)
 length.val(length.val == -9999) &lt;- NA
 # What is the error message?</code></pre>
 </div>
-<div id="directory-structure" class="section level3">
-<h3>Directory structure</h3>
-<pre class="r"><code># Report the working directory to the workspace
-getwd()</code></pre>
-<p>Determine contents of the working directory</p>
-<pre class="r"><code>dir()
-
-# Search for .html files
-dir(pattern = &quot;.html&quot;)
-
-# # Search for .csv files
-dir(pattern = &quot;.csv&quot;)</code></pre>
-<p>Organize your RStudio Projects</p>
-<p>(<a href="https://nicercode.github.io/blog/2013-04-05-projects/" class="uri">https://nicercode.github.io/blog/2013-04-05-projects/</a>)</p>
-<p>(<a href="https://www.carlboettiger.info/2012/05/06/research-workflow.html" class="uri">https://www.carlboettiger.info/2012/05/06/research-workflow.html</a>)</p>
-</div>
 <div id="csv-data" class="section level3">
 <h3>.csv data</h3>
 <p>Comma delimited files .csv files are easily imported using the command line</p>
@@ -1704,10 +1704,29 @@ head(fishdata)
 tail(fishdata) 
 # Names of columns
 names(fishdata)</code></pre>
-<p>Many, many data types can be imported… + .ncdf files + .shp files + .hdf files + .xls + many, many other proprietary data types…</p>
-<p>Specialized data import often requires specialized packages + foreign + XLConnect + RODBC + many others and likely one or more suits your specialized needs.</p>
-<p>Native files in .RData. + There are a suite of functions that can be used to work with these files.</p>
-<p>Excercises + How many .csv files are in your current directory?</p>
+<p>Many, many data types can be imported…</p>
+<ul>
+<li><p>.ncdf files</p></li>
+<li><p>.shp files</p></li>
+<li><p>.hdf files</p></li>
+<li><p>.xls</p></li>
+<li><p>many, many other proprietary data types…</p></li>
+</ul>
+<p>Specialized data import often requires specialized packages</p>
+<ul>
+<li><p>foreign</p></li>
+<li><p>XLConnect</p></li>
+<li><p>RODBC</p></li>
+<li><p>many others and likely one or more suits your specialized needs.</p></li>
+</ul>
+<p>Native files in .RData.</p>
+<ul>
+<li>There are a suite of functions that can be used to work with these files.</li>
+</ul>
+<p>Excercises</p>
+<ul>
+<li>How many .csv files are in your current directory?</li>
+</ul>
 </div>
 
 
