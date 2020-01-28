@@ -6,6 +6,11 @@ output:
     toc_float: yes
 ---
 
+```{r, include=FALSE}
+options(tinytex.verbose = TRUE)
+syl.comp <- read.csv("Syllabus Components.csv")
+```
+
 ### Workload Expectations
 
 Below you will find:
