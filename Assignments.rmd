@@ -5,7 +5,6 @@ output:
     toc_depth: 3
     toc_float: yes
 ---
-
 ```{r, include=FALSE}
 options(tinytex.verbose = TRUE)
 syl.comp <- read.csv("Syllabus Components.csv")
@@ -22,9 +21,6 @@ Below you will find:
 + General workload expectations.
 
 ### Assignment Policy and Procedures
-`r paste0(syl.comp$VAR2[which(syl.comp$VAR1 == "Assignment Policy and Procedures")])`
-
-`r paste0(syl.comp$VAR2[which(syl.comp$VAR1 == "Assignment Policy and Procedures 2")])`
 
 `r paste0(syl.comp$VAR2[which(syl.comp$VAR1 == "Assignment Policy and Procedures 3")])`
 
@@ -34,120 +30,138 @@ You will save your code to your individual-linked dropbox account.
 
 Considerations:
 
-1. You will replace the phrase "LAST.CODE" with your unique last name identifier, the first four characters of your last name. So, if your name is has LAST.CODE 'Smit', then if the assignment asks for the code to be named 'LAST.CODE.initalize.proj.r' you will turn in a file called 'Smit.initalize.proj.r' (Here LAST.CODE has been replaced with 'Smit'). The codes for our class are below.
+1. All files submitted must be annotated and have descriptive header information. Annotation and descriptive header information is described in the 'functions' tab on our course website.
 
-2. All files submitted must be annotated and have descriptive header information. Annotation and descriptive header information is described in the 'functions' tab on our course website.
+2. For assignments that require you to submit multiple files, all of the files will need to run error free and accomplish the tasks for credit to be earned.
 
-3. For assignments that require you to submit multiple files, all of the files will need to run error free and accomplish the tasks for credit to be earned.
+3. Every assignment is an Rstudio project. If data are used in the assignments, then the data must be linked through the 'data' directory. If figures are created, then they must be written to the 'figs' directory.
 
-4. Every assignment is an Rstudio project. If data are used in the assignments, then the data must be linked through the 'data' directory. If figures are created, then they must be written to the 'figs' directory.
-
-5. You will upload all project files to the proper directory in your linked dropbox.
-
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
-require(knitr)
-require(kableExtra)
-student.list <- read.csv("./Students 2020/student.list.csv")
-names(student.list) <- c("First Name",	"Last Name",	"LAST.CODE")
-knitr::kable(student.list) %>%
-column_spec(3, bold = T, width = "5em") %>%
-  kable_styling(bootstrap_options = "striped", full_width = T, position = "center")
-```
+4. You will upload all project files to the proper directory in your linked dropbox.
 
 ### Assignment 01 - Working in R
 
-Make a project called 'Assignment 01'.
+#### Task 01
++ Make a project called 'Assignment 01'.
 
-Create a function named '01.LAST.CODE.initalize.proj.r' that automatically creates a directory structure outlined in (https://nicercode.github.io/blog/2013-04-05-projects/). Save this function into the 'R' directory.
++ Make a new script into the 'R' directory, the name of the script will be called 'init.proj.r'
 
-Change your R site profile so that this function loads every time you start R. (https://www.r-bloggers.com/fun-with-rprofile-and-customizing-r-startup/).
++ This script will contain a single function, called 'init.proj'
 
-Make a new function '01.LAST.CODE.Task.01.r', save this in the R directory. 
++ The goal of the function will be to automatically creates a directory structure outlined in (https://nicercode.github.io/blog/2013-04-05-projects/). 
 
-This code in '01.LAST.CODE.Task.01.r' will do all of the following: write the entire mtcars data as a csv file to the 'data' directory (mtcars is in the package 'datasets'), import the .csv file, selecting only the first 10 rows only. From this imported and reduced data frame, make a new data frame that includes a column that is the hp per cylinder (divide hp by cyl), name this column hp.per.cyl. Print the data frame to the screen and also save it to the 'data' directory as mtcars.red.RData (it will be saved as file type .RData).
++ Pro tip (optional): Change your R site profile so that this function loads every time you start R. See (https://www.r-bloggers.com/fun-with-rprofile-and-customizing-r-startup/)
 
-You will graded on whether these files run and return the expected components:
+#### Task 02
 
-'01.LAST.CODE.initalize.proj.r'
++ Make a new script into the 'R' directory, the name of the script will be called 'import.and write.r'
 
-'01.LAST.CODE.Task.01.r'
++ Save this script in the r directory.
+
++ This function will do the following:
+
+1. Write the entire mtcars data as a csv file to the 'data' directory (mtcars is in the package 'datasets')
+
+2. Import the the.csv file you wrote, selecting only the first 10 rows only. 
+
+3. From this imported and reduced data frame, make a new data frame that includes a column that is the hp per cylinder (divide hp by cyl)
+
+4. Name this column "hp.per.cyl". 
+
+5. Print the data frame to the screen
+
+6. Save the data frame the 'data' directory as mtcars.red.RData (it will be saved as file type .RData).
 
 ### Assignment 02 - Figures
 
 Make a project called 'Assignment 02'.
 
-The project will have the sterotyped directory structure described in (https://nicercode.github.io/blog/2013-04-05-projects/) and you will use '01.LAST.CODE.initalize.proj.r' to initialize the project directory (create the direcotry structure).
++ Use your function init.proj
 
-For each of the excercises in:
++ For each of the excercises in:
 
 '28.2.1 Exercises' (n = 3)
 
-Wrap each of the excercise code in a function: '02.LAST.CODE.fig.01.r', '02.LAST.CODE.fig.02.r', and '02.LAST.CODE.fig.03.r'.
+Wrap each of the excercise code in a function: 
 
-The functions will have at least two function arguments that can be changed by the user to alter the aesthetics or data in the figure.
+1. 'make.fig.01.r'
 
-The function will write the output figure to a .png file in the 'fig' directory in your project. The title of the figures will be:
+2. 'make.fig.02.r'  
 
-'02.LAST.CODE.fig.01.png', '02.LAST.CODE.fig.02.png', and '02.LAST.CODE.fig.03.png'
+3. 'make.fig.03.r'
+
+The functions will have at least two function arguments that can be changed by the user to alter the aesthetics or data in the figure. The function will write the output figure to a .png file in the 'fig' directory in your project. The title of the figures will be:
+
+'fig.01.png', 'fig.02.png', and 'fig.03.png'
 
 ### Assignment 03 - The Tidyverse and Loops
 
-You will make a project called 'Assignment 03'. The project will have the sterotyped directory structure described in (https://nicercode.github.io/blog/2013-04-05-projects/). Use your function '01.LAST.CODE.initalize.proj.r' to accomplish this.
+You will make a project called 'Assignment 03'.
 
-You will practice coding using tidyverse functions found in this link focusing on the Activities in R4DS 05. We will compare the speed of execution of "filter" and "summarize" on a large data frame. We will use with the babynames data from the 'babynames' package. The babynames dataset has historical information about births of babies in the U.S. View a preview of this dataset by typing babynames in to the console. Yes, this dataset contains 1.8 million observations. 
++ Use your function init.proj
 
-You will create a series of functions that will allow side by side analysis of traditional loops and contemporary tidyverse.
++ The goal of this excercise will be to compare the speed of execution of operations on large data frames. We will use with the babynames data from the 'babynames' package (you will need to download this). The babynames dataset has historical information about births of babies in the U.S. View a preview of this dataset by typing babynames in to the console. Yes, this dataset contains 1.8 million observations (that's a lot of data!). 
 
-The file '03.LAST.CODE.Task.01.r' will be a script that contain three functions:
++ After your inspection of the data, create a file 'speed.test.r' will be a script, and saved in the correct directory, that will contain three functions:
 
-The first will be a function that contains the code arranging the babynames tibble in alphabetical order. You will arrange the rows such that the names column is arranged alphabetically. Here you will use tidyverse functionality. The function will be called 'tidy.arrange'.
++ The first will contain code to arrangw the babynames tibble in alphabetical order. You will arrange the rows such that the names column is arranged alphabetically. Here you will use tidyverse functionality. The function will be called 'tidy.arrange'.
 
-The second function will arranges the baby names alphabetically but do so without using tidyverse functions. Instead, you will use a loop and base R syntax. This function will be called 'base.arrange'. Recommend identifying unique babynames and looping through these to create a new data frame. There are a lot of ways to accomplish this and I look forward to seeing your creativity.
++ The second function will arranges the baby names alphabetically but do so without using tidyverse functions. Instead, you will use a loop and base R syntax. This function will be called 'base.arrange'. One (of many) ways to do this is by identifying unique babynames and looping through these to create a new data frame. There are a lot of ways to accomplish this and I look forward to seeing your creativity.
 
-Both of these functions will return two objects. The first is a data frame of the ordered babynames, the second is the time that it takes the function to exectue. Hint, to get the time use a function that returns the time from computer's internal clock at the start and finish of the function (I use package matlab's functions tic and toc for this, there are other ways). Each function will have one function argument, the input data, babynames.
++ Both of the above functions will return two objects. The first is a data frame of the ordered babynames, the second is the time that it takes the function to execute Hint, to get the time use a function that returns the time from computer's internal clock at the start and finish of the function (I use package 'matlab' functions 'tic' and 'toc' for this, there are other ways). Each function will have one function argument, the input data, babynames.
 
-Now you will write thrird function that calls 'tidy.arrange' and 'base.arrange', this will be called 'arrange.test'. This function will run both tidy.arrange and base.arrange, the intention is to run each function on differnt sized data to understand (using a figure created in this function) how they compare in terms of time to completion. This function will have as an argument the input data used by both functions. The function will return three objects; the times of completion for 'tidy.arrange' and 'base.arrange' and the number of rows in the data frame.
++ Now you will write third function, called 'arrange.test'. This function will run both 'tidy.arrange' and 'base.arrange', the intention is to run each function on different sized data, using 'arrange.test' as a wrapper. We will then understand how they compare in terms of time to completion. The function 'arrange.test' will have as an argument the input data used by both functions. The function 'arrange.test' will return three objects; the time of completion for 'tidy.arrange', time of completion for 'base.arrange' and the number of rows in the data frame.
 
-Make a new r script (a .r file) called '03.LAST.CODE.arrange.test.r'. This script will: 'source' (?source) the functions in '03.LAST.CODE.Task.01.r', generate data for plotting (I would recommend to subset the data using the 'seq' function and run arrange.test multiple times), and create a plot that has the number of seconds on the x-axis and the number of rows of the input data on the y-axis. Write this figure to the figs directory as a .png file, '03.LAST.CODE.Task.02.png'.
++ Make a new r script (a .r file) called 'arrange.test.run.r'. This script will: 'source' (?source) the functions in 'arrange.test.r' that you have saved in the R directory.
 
-You will graded on whether these files run. Therefore include the directory structure in your upload to Assignment 03.
++ This function will do the following:
+
+1. Run 'arrange.test' multiple times (at least five). During each of these 'times' or trials you will save the output from arrange.test in a data frame. Run 'arrange.test' at least five times and save the results from each trial.
+
+2. Using the saved data from the trials you performed, plot these data. Create a plot that has the number of seconds on the x-axis and the number of rows of the input data on the y-axis. Write this figure to the figs directory as a .png file, 'arrange.test.trial.png'.
 
 ### Assignment 04 - Rmarkdown
 
 You will make a project called 'Assignment 04'.
 
-Create a Rmarkdown document (.Rmd) that descibes and documents the motivation and approach, code and output, and figure(s) you created in Assignment 03. 
+Create a Rmarkdown document (.Rmd) that descibes and documents the motivation and approach, code and output, and figure(s) you created in Assignment 03. Note when using Rmarkdown, it is easiest to put all of the files (.r, .png, ect.) into a single directory, so no need to make sub-directories in the project.
 
-This Rmarkdown document '04.LAST.CODE.Task.01.Rmd' will pull the functions created in Assignment 03 so note that the figure and function locations (directories in Assignment 03) will need to be consistent with (https://nicercode.github.io/blog/2013-04-05-projects/). This will also be necessary because I will be knitting the submitted .Rmd on my machine. 
-
+This Rmarkdown document 'speed.test.writeup.Rmd' will pull the functions created in Assignment 03. Therefore the figure and functions will need to be saved into the Assignment 04 directory. 
 
 ### Project
 
-#### Requirement 01: 
+#### Project Requirement 01: 
 
-You will upload a .Rmd file that I will knit to a .doc and .html file. This document will include your name and the title of your project. You will write approximately 400 words allocated into three sections:
+You will upload a .Rmd file that I will knit to a .doc and .html file. This document will include your name and the title of your project. Note in Rmarkdown doc, it is easiest to put all of the files (.r, .png, ect.) into a single directory, so no need to make sub-directories in the project.
+
+You will write approximately 400 words allocated into three sections:
 
 1.) Introduce your project - three sentences.
 
-2.) Describe the computational methods and the data you will use (most of your text here using topic sentences and paragraphs) - data must be larger than 2,000 records and must be publicly available, and 
+2.) Describe the:
+
++ computational methods and 
+
++ the data you will use.
+
+Most of your text here using topic sentences and paragraphs. The data must be larger than 2,000 records and must be publicly available, and 
 
 3.) Describe the deliverables (at least three) that you will accomplish (one sentence per deliverable),
 
 4.) Present the project idea to the class - 10 minute presentation using only material you have provided me in the .Rmd file.
 
-The document will be titled "LAST.CODE.Proj.Prop.Rmd" and be uploaded into the 'doc' directory, located in your personal 'Project' directory. You will meet in person or by phone, with me, to discuss the project scope and objectives prior to submitting the .Rmd file. I will not be available to meet with you after W, April 1, 2020 5 PM. It is your responsiblity to make an appointment with me to discuss your project prior to this date. You will turn this assignment in on W, April 06, 2020 5 PM.  
+The document will be titled "LAST.CODE.Proj.Prop.Rmd". You will meet in person or by phone, with me, to discuss the project scope and objectives prior to submitting the .Rmd file. I will not be available to meet with you after W, April 1, 2020 5 PM. It is your responsiblity to make an appointment with me to discuss your project prior to this date. You will turn this assignment in on W, April 06, 2020 5 PM.  
 
 You will be graded with a 1 or 0 if you have fulfilled all of the requirements: 
 
 1. Meet with me prior to or on W, April 1, 2020 5 PM to discuss the project, 
 
-2. Submit the .Rmd file that can be kitted (no credit if it cannot), and
+2. Submit the .Rmd file that can be kitted, and
 
 3. Have fulfilled the formatting and length requirements I document above. 
 
 Requirement 01 is worth 1 point.
 
-#### Requirement 02: 
+#### Project Requirement 02: 
 
 You will prepare an .Rmd file of your project. I will knit this to an .html file that you will present to the class.
 
@@ -158,7 +172,3 @@ A zero or one will be assigned based on the quality of the talk and the quality 
 The assignment is due: W, May 06, 2020 by 5 PM.
 
 Requirement 02 is worth 2 points.
-
-### General workload expectations
-
-Learning is not a spectator sport. For the engaged learner, mastery of the subject matter covered in this course will require significant coding on your part. To accomplish this you will make directories and projects in your personal directory "RD4DS.01","RD4DS.02", "RD4DS.03", ect. that will include coding from that section. 

@@ -16,7 +16,9 @@ navbar:
     - text: "Loops and Conditionals"
       href: 04.Funct.html
     - text: "Functions"
-      href: 05.Developing.html   
+      href: 05.Developing.html 
+    - text: "Questions"
+      href: Questions.html 
     - text: "Statistics"
       href: 06.Parametric.html        
 output:

@@ -1,0 +1,32 @@
+---
+output:
+  html_document:
+    toc: yes
+    toc_depth: 3
+    toc_float: yes
+---
+
+### Question 01
+
+I get warning messages when I try to assign an object that starts with '01'. I know you talked about this in class on Monday but unfortunately I can't remember if there was a solution to this problem.
+
++ Yes, this was my mistake. I have revised the assignment tab to streamline the naming for you and me. See the update, this should run fine with the new naming convention that I have requested.
+
+### Question 02
+
+The other question regards downloading the 'datasets' package to get the mtcars data. Whenever I try to get 'datasets' I get a warning message that says "Warning in install.packages: package 'datasets' is not available (for R version 3.6.2)" and "package 'datasets' is a base package, and should not be updated." RStudio recommended I download RTools to try to help the problem but it didn't work. Do you have any advice as to how to fix this?
+
++ I recommend google search engine on warnings and error messages. A search to this effect would show that you have this package on your machine. Type 'mtcars' into your console, if you see data, then you have the package installed. 
+
+### Question 03
+
+I'm having trouble with my console. I don't have the other panes, including the Environment pane and the script/console pane I'm not sure about the name. I tried figuring it out but to no avail. Can you help me how to restore this? I attached a photo of how my R console looks like upon opening.
+
+![](http://www.unige.ch/ses/sococ/cl/r/rwindow0.jpg)
+
++ You are not using Rstudio, you are using R's built in console. You need to review the course material found here for installing RStudio.
+
+https://rtleaf.github.io/R-shortcourse/01.RStudio.and.R.html
+
+
+

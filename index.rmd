@@ -4,7 +4,7 @@ output:
   html_document:
     toc: no
 ---
-# R Programming Shortcourse
+# Data analysis using R
 
 This course is a first class in the R programming language focusing on basic syntax and plotting using base functions.
 
