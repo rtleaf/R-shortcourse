@@ -5,10 +5,7 @@ output:
     toc_depth: 3
     toc_float: yes
 ---
-```{r, include=FALSE}
-options(tinytex.verbose = TRUE)
-syl.comp <- read.csv("Syllabus Components.csv")
-```
+
 
 ### Workload Expectations
 
@@ -22,7 +19,7 @@ Below you will find:
 
 ### Assignment Policy and Procedures
 
-`r paste0(syl.comp$VAR2[which(syl.comp$VAR1 == "Assignment Policy and Procedures 3")])`
+Grades for Assignments will be either a zero or one. To receive a grade of one, all code must run on all my machine and return all required components of the assignment. You may turn in any assignment as many times as necessary to ensure that you receive credit.
 
 #### Turning in code
 
