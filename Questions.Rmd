@@ -2,7 +2,7 @@
 output:
   html_document:
     toc: yes
-    toc_depth: 3
+    toc_depth: 4
     toc_float: yes
 ---
 
@@ -28,5 +28,20 @@ I'm having trouble with my console. I don't have the other panes, including the 
 
 https://rtleaf.github.io/R-shortcourse/01.RStudio.and.R.html
 
+### Question 04
 
+Should I use the assignement operator?
 
++ See this blog post: https://colinfay.me/r-assignment/
+
+### Question 05
+
+I wanted to let you know that I will have to sign out of our zoom session today a little early at 5. 
+
++ I leave your learning to you and want to be considerate of your busy research schedule and assistantship duties, attend class as little or much as you like.
+
+### Question 06
+
+"Efficient R programming" helped me immensely with editing the .Rprofile code and understanding what it was that I was editing. I figure passing it along could be helpful for somebody else.
+
+https://csgillespie.github.io/efficientR/r-startup.html

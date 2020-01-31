@@ -92,3 +92,9 @@ Displays data, their classes, and dimensions in your workspace.
 ### Installing R packages
 
 https://www.r-bloggers.com/installing-r-packages/
+
+### Change my Rprofile site
+
+Every time R starts a number of things happen. It can be useful to understand this startup process, so you can make R work the way you want it, fast. This link explains how.
+
+https://csgillespie.github.io/efficientR/r-startup.html
