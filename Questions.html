@@ -1686,6 +1686,23 @@ div.tocify {
 <p>“Efficient R programming” helped me immensely with editing the .Rprofile code and understanding what it was that I was editing. I figure passing it along could be helpful for somebody else.</p>
 <p><a href="https://csgillespie.github.io/efficientR/r-startup.html" class="uri">https://csgillespie.github.io/efficientR/r-startup.html</a></p>
 </div>
+<div id="question-07" class="section level3">
+<h3>Question 07</h3>
+<p>How to create an object, using a loop, that returns c(5, 8, 11, 14) - Zach’s solution</p>
+<pre class="r"><code>n.vect &lt;- c() 
+for (i in seq(from = 3, to = 12, by = 3)){
+  n.vect[i / 3] &lt;- i + 2
+}</code></pre>
+</div>
+<div id="question-08" class="section level3">
+<h3>Question 08</h3>
+<p>What is one solution to the “loops excercise” - Zach’s solution</p>
+<pre class="r"><code>n  &lt;-  4
+n.val  &lt;-  0
+for (i in 1:n){
+  n.val  &lt;-  n.val  +  (i / (i + 1))
+}</code></pre>
+</div>
 
 
 

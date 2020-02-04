@@ -45,3 +45,26 @@ I wanted to let you know that I will have to sign out of our zoom session today 
 "Efficient R programming" helped me immensely with editing the .Rprofile code and understanding what it was that I was editing. I figure passing it along could be helpful for somebody else.
 
 https://csgillespie.github.io/efficientR/r-startup.html
+
+### Question 07
+
+How to create an object, using a loop, that returns c(5, 8, 11, 14) - Zach's solution
+
+```{r, eval=FALSE}
+n.vect <- c() 
+for (i in seq(from = 3, to = 12, by = 3)){
+  n.vect[i / 3] <- i + 2
+}
+```
+
+### Question 08
+
+What is one solution to the "loops excercise" - Zach's solution
+
+```{r, eval=FALSE}
+n  <-  4
+n.val  <-  0
+for (i in 1:n){
+  n.val  <-  n.val  +  (i / (i + 1))
+}
+```
