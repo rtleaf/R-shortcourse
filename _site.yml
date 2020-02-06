@@ -1,7 +1,7 @@
 name: "R shortcourse"
 output_dir: "."
 navbar:
-  title: "Course Content"
+  title: "Schedule"
   left:
     - text: "Syllabus"
       href: syllabus-template.html 
