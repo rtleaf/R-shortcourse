@@ -68,3 +68,21 @@ for (i in 1:n){
   n.val  <-  n.val  +  (i / (i + 1))
 }
 ```
+
+### Question 09
+
+I keep getting an error message "The process cannot access the file because it is being used by another process RStudio IDE". What is going on?
+
+From "community.rstudio.com":
+
+When using an RStudio project on OneDrive for Business I pause syncing for a couple of hours (right-click the OneDrive icon in the system tray and select 'pause syncining > '. It's a minor irritation to turn it back on again, but it was the workflow I used when I used Google Drive.
+
+Alternatifvely, you could try turning off syncing for the Rproject directory (right-click in your folder in Explorer and click on "Choose OneDrive folders to sync"), but I suspect similar issues might arise as other posts have noted for Dropbox and similar cloud services.
+
+### Question 10
+
+What is the difference between "print" and "return" in functions.
+
+"print" as it names implies print to the console (and return the value printed)
+
+"return" only return the value and ends the function.
