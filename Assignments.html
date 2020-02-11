@@ -1668,24 +1668,24 @@ div.tocify {
 </ol>
 </div>
 </div>
-<div id="assignment-01---working-in-r" class="section level3">
-<h3>Assignment 01 - Working in R</h3>
+<div id="assignment-01---working-in-r-and-rstudio" class="section level3">
+<h3>Assignment 01 - Working in R and RStudio</h3>
 <div id="task-01" class="section level4">
 <h4>Task 01</h4>
 <ul>
 <li><p>Make a project called ‘Assignment 01’.</p></li>
 <li><p>Make a new script into the ‘R’ directory, the name of the script will be called ‘init.proj.r’</p></li>
 <li><p>This script will contain a single function, called ‘init.proj’</p></li>
-<li><p>The goal of the function will be to automatically creates a directory structure outlined in (<a href="https://nicercode.github.io/blog/2013-04-05-projects/" class="uri">https://nicercode.github.io/blog/2013-04-05-projects/</a>).</p></li>
+<li><p>The goal of the function will be to automatically creates a directory structure outlined in (<a href="https://nicercode.github.io/blog/2013-04-05-projects/" class="uri">https://nicercode.github.io/blog/2013-04-05-projects/</a>). i.e. it will have directories: R, data, doc, figs, and output.</p></li>
 <li><p>Pro tip (optional): Change your R site profile so that this function loads every time you start R. See (<a href="https://www.r-bloggers.com/fun-with-rprofile-and-customizing-r-startup/" class="uri">https://www.r-bloggers.com/fun-with-rprofile-and-customizing-r-startup/</a>)</p></li>
 </ul>
 </div>
-<div id="task-02" class="section level4">
-<h4>Task 02</h4>
+<div id="task-02---import-and-transform" class="section level4">
+<h4>Task 02 - “Import and Transform”</h4>
 <ul>
-<li><p>Make a new script into the ‘R’ directory, the name of the script will be called ‘import.and write.r’</p></li>
+<li><p>Make a new script into the ‘R’ directory, the name of the script will be called ‘import.and.write.r’</p></li>
 <li><p>Save this script in the r directory.</p></li>
-<li><p>This function will do the following:</p></li>
+<li><p>This script will do the following:</p></li>
 </ul>
 <ol style="list-style-type: decimal">
 <li><p>Write the entire mtcars data as a csv file to the ‘data’ directory (mtcars is in the package ‘datasets’)</p></li>
@@ -1697,21 +1697,21 @@ div.tocify {
 </ol>
 </div>
 </div>
-<div id="assignment-02---figures" class="section level3">
-<h3>Assignment 02 - Figures</h3>
+<div id="assignment-02---communicate" class="section level3">
+<h3>Assignment 02 - Communicate</h3>
 <p>Make a project called ‘Assignment 02’.</p>
 <ul>
-<li><p>Use your function init.proj</p></li>
+<li><p>Use your function init.proj to populate the project directory.</p></li>
 <li><p>For each of the excercises in:</p></li>
 </ul>
 <p>‘28.2.1 Exercises’ (n = 3)</p>
-<p>Wrap each of the excercise code in a function:</p>
+<p>Wrap each of the excercise codes in a function saved to:</p>
 <ol style="list-style-type: decimal">
-<li><p>‘make.fig.01.r’</p></li>
-<li><p>‘make.fig.02.r’</p></li>
-<li><p>‘make.fig.03.r’</p></li>
+<li><p>function make.fig.01 saved in .r file ‘make.fig.01.r’</p></li>
+<li><p>function make.fig.02 saved in .r file ‘make.fig.02.r’</p></li>
+<li><p>function make.fig.03 saved in .r file ‘make.fig.03.r’</p></li>
 </ol>
-<p>The functions will have at least two function arguments that can be changed by the user to alter the aesthetics or data in the figure. The function will write the output figure to a .png file in the ‘fig’ directory in your project. The title of the figures will be:</p>
+<p>Each of the functions functions will have at least two function arguments that can be changed by the user to alter the aesthetics or data in the figure. The function will write the output figure to a .png file in the ‘figs’ directory in your project. The title of the figures will be:</p>
 <p>‘fig.01.png’, ‘fig.02.png’, and ‘fig.03.png’</p>
 </div>
 <div id="assignment-03---the-tidyverse-and-loops" class="section level3">
@@ -1720,13 +1720,13 @@ div.tocify {
 <ul>
 <li><p>Use your function init.proj</p></li>
 <li><p>The goal of this excercise will be to compare the speed of execution of operations on large data frames. We will use with the babynames data from the ‘babynames’ package (you will need to download this). The babynames dataset has historical information about births of babies in the U.S. View a preview of this dataset by typing babynames in to the console. Yes, this dataset contains 1.8 million observations (that’s a lot of data!).</p></li>
-<li><p>After your inspection of the data, create a file ‘speed.test.r’ will be a script, and saved in the correct directory, that will contain three functions:</p></li>
-<li><p>The first will contain code to arrangw the babynames tibble in alphabetical order. You will arrange the rows such that the names column is arranged alphabetically. Here you will use tidyverse functionality. The function will be called ‘tidy.arrange’.</p></li>
-<li><p>The second function will arranges the baby names alphabetically but do so without using tidyverse functions. Instead, you will use a loop and base R syntax. This function will be called ‘base.arrange’. One (of many) ways to do this is by identifying unique babynames and looping through these to create a new data frame. There are a lot of ways to accomplish this and I look forward to seeing your creativity.</p></li>
-<li><p>Both of the above functions will return two objects. The first is a data frame of the ordered babynames, the second is the time that it takes the function to execute Hint, to get the time use a function that returns the time from computer’s internal clock at the start and finish of the function (I use package ‘matlab’ functions ‘tic’ and ‘toc’ for this, there are other ways). Each function will have one function argument, the input data, babynames.</p></li>
-<li><p>Now you will write third function, called ‘arrange.test’. This function will run both ‘tidy.arrange’ and ‘base.arrange’, the intention is to run each function on different sized data, using ‘arrange.test’ as a wrapper. We will then understand how they compare in terms of time to completion. The function ‘arrange.test’ will have as an argument the input data used by both functions. The function ‘arrange.test’ will return three objects; the time of completion for ‘tidy.arrange’, time of completion for ‘base.arrange’ and the number of rows in the data frame.</p></li>
-<li><p>Make a new r script (a .r file) called ‘arrange.test.run.r’. This script will: ‘source’ (?source) the functions in ‘arrange.test.r’ that you have saved in the R directory.</p></li>
-<li><p>This function will do the following:</p></li>
+<li><p>After your inspection of the data, create a file ‘speed.test.r’ will be a script, and saved in the correct directory. The .r file will contain three functions:</p></li>
+<li><p>The first will contain code to arrange the babynames tibble in alphabetical order. You will arrange the rows such that the names column is arranged alphabetically. Here you will use tidyverse functionality. The function will be called ‘tidy.arrange’.</p></li>
+<li><p>The second function will arrange the baby names alphabetically but do so without using tidyverse functions. Instead, you will use a loop and base R syntax. This function will be called ‘base.arrange’. One (of many) ways to do this is by identifying unique babynames and looping through these to create a new data frame - this would be my approach but looking forward to seeing yours.</p></li>
+<li><p>Both of the above functions will return two objects. The first is a data frame of the ordered babynames, the second is the time that it takes the function to execute Hint, to get the time use a function that returns the time from computer’s internal clock at the start and finish of the function (I generally use package ‘matlab’ functions ‘tic’ and ‘toc’ for this, there are other ways). Each function will have one function argument, the input data, babynames.</p></li>
+<li><p>Now you will write third function, called ‘arrange.test’. This function will run both ‘tidy.arrange’ and ‘base.arrange’, the intention is to run each function on different sized data, using ‘arrange.test’ as a wrapper. We will then understand how they compare in terms of time to completion. The function ‘arrange.test’ will have as an argument the input data used by both functions. The function ‘arrange.test’ will return three objects; the time of completion for ‘tidy.arrange’, the time of completion for ‘base.arrange’ and the number of rows in the data frame being “arranged”.</p></li>
+<li><p>Now make a new r script (a .r file) called ‘arrange.test.run.r’. This script will: ‘source’ (?source) the functions in ‘arrange.test.r’ that you have saved in the R directory.</p></li>
+<li><p>This script will do the following:</p></li>
 </ul>
 <ol style="list-style-type: decimal">
 <li><p>Run ‘arrange.test’ multiple times (at least five). During each of these ‘times’ or trials you will save the output from arrange.test in a data frame. Run ‘arrange.test’ at least five times and save the results from each trial.</p></li>
@@ -1736,7 +1736,7 @@ div.tocify {
 <div id="assignment-04---rmarkdown" class="section level3">
 <h3>Assignment 04 - Rmarkdown</h3>
 <p>You will make a project called ‘Assignment 04’.</p>
-<p>Create a Rmarkdown document (.Rmd) that descibes and documents the motivation and approach, code and output, and figure(s) you created in Assignment 03. Note when using Rmarkdown, it is easiest to put all of the files (.r, .png, ect.) into a single directory, so no need to make sub-directories in the project. Target: 500 words of text.</p>
+<p>Create a Rmarkdown document (.Rmd) that descibes and documents the motivation and approach, code and output, and figure(s) you created in Assignment 03 - basically walk an uninformed reader throught the assignment. Note when using Rmarkdown, it is easiest to put all of the files (.r, .png, ect.) into a single directory, so no need to make sub-directories in the project. Target: 500 words of text. Cite at least one paper and use the bibtex functionality of Rmarkdown to add a formatted citation (this does not count against your word count).</p>
 <p>This Rmarkdown document ‘speed.test.writeup.Rmd’ will pull the functions created in Assignment 03. Therefore the figure and functions will need to be saved into the Assignment 04 directory.</p>
 </div>
 <div id="project" class="section level3">
@@ -1751,13 +1751,13 @@ div.tocify {
 <li><p>computational methods and</p></li>
 <li><p>the data you will use.</p></li>
 </ul>
-<p>Most of your text here using topic sentences and paragraphs. The data must be larger than 2,000 records and must be publicly available, and</p>
+<p>This section will take teh most text and you will use topic sentences and paragraphs. The data must be larger than 2,000 records and must be publicly available, and</p>
 <p>3.) Describe the deliverables (at least three) that you will accomplish (one sentence per deliverable),</p>
 <p>4.) Present the project idea to the class - 10 minute presentation using only material you have provided me in the .Rmd file.</p>
 <p>The document will be titled “LAST.CODE.Proj.Prop.Rmd”. You will meet in person or by phone, with me, to discuss the project scope and objectives prior to submitting the .Rmd file. I will not be available to meet with you after W, April 1, 2020 5 PM. It is your responsiblity to make an appointment with me to discuss your project prior to this date. You will turn this assignment in on W, April 06, 2020 5 PM.</p>
 <p>You will be graded with a 1 or 0 if you have fulfilled all of the requirements:</p>
 <ol style="list-style-type: decimal">
-<li><p>Meet with me prior to or on W, April 1, 2020 5 PM to discuss the project,</p></li>
+<li><p>Meet with me prior to or on W, April 1, 2020 5 PM to discuss your proposed project (Let’s make sure you have a project that will be sufficiently ambitious),</p></li>
 <li><p>Submit the .Rmd file that can be kitted, and</p></li>
 <li><p>Have fulfilled the formatting and length requirements I document above.</p></li>
 </ol>
@@ -1765,8 +1765,8 @@ div.tocify {
 </div>
 <div id="project-requirement-02" class="section level4">
 <h4>Project Requirement 02:</h4>
-<p>You will prepare an .Rmd file of your project. I will knit this to an .html file that you will present to the class.</p>
-<p>A zero or one will be assigned based on the level of complexity of the analysis and amount of orignial coding and having the .html knit. Only projects that contain every aspect of import, tidy, transform, visualize, model, and communicate can be given credit. The code you provide in your project will be extensive and will document your mastery of the tidyverse, data visualization, and original and interesting analysis. My expectatation is that the coding will be extensive and demonstrate the philosophy of reproducible workflow that we have studied.</p>
+<p>You will prepare a .Rmd file of your project. I will knit this to a .html file that you will present to the class.</p>
+<p>A zero or one will be assigned based on the level of complexity of the analysis and amount of orignial coding. Only projects that contain every aspect of import, tidy, transform, visualize, model, and communicate can be given credit. The code you provide in your project will be extensive and will document your mastery of the tidyverse, data visualization, and original and interesting analysis. My expectatation is that the coding will be extensive and demonstrate the philosophy of reproducible workflow that we have studied. The .html knit must knit on my machine.</p>
 <p>A zero or one will be assigned based on the quality of the talk and the quality of the .html presentation. You will have 10 minutes for your presentation. The visuals and narrative should be interesting, polished, and concise.</p>
 <p>The assignment is due: W, May 06, 2020 by 5 PM.</p>
 <p>Requirement 02 is worth 2 points.</p>
