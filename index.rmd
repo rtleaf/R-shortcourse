@@ -14,8 +14,9 @@ output:
 require(knitr)
 require(kableExtra)
 course.eval <- read.csv("Course Schedule.csv")
+
 names(course.eval) <- c("Class Number",	"Day",	"Readings and Assignments", "Video Link")
 knitr::kable(course.eval) %>%
-column_spec(1, bold = T, width = "5em") %>%
+  column_spec(1, bold = T, width = "5em") %>%
   kable_styling(bootstrap_options = "striped", full_width = T, position = "center")
 ```
