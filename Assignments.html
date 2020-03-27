@@ -1726,17 +1726,23 @@ div.tocify {
 <ul>
 <li><p>Use your function init.proj</p></li>
 <li><p>The goal of this excercise will be to compare the speed of execution of operations on large data frames. We will use with the babynames data from the ‘babynames’ package (you will need to download this). The babynames dataset has historical information about births of babies in the U.S. View a preview of this dataset by typing babynames in to the console. Yes, this dataset contains 1.8 million observations (that’s a lot of data!).</p></li>
-<li><p>After your inspection of the data, create a file ‘speed.test.r’ will be a script, and saved in the correct directory. The .r file will contain three functions:</p></li>
-<li><p>The first will contain code to arrange the babynames tibble in alphabetical order. You will arrange the rows such that the names column is arranged alphabetically. Here you will use tidyverse functionality. The function will be called ‘tidy.arrange’.</p></li>
-<li><p>The second function will arrange the baby names alphabetically but do so without using tidyverse functions. Instead, you will use a loop and base R syntax. This function will be called ‘base.arrange’. One (of many) ways to do this is by identifying unique babynames and looping through these to create a new data frame - this would be my approach but looking forward to seeing yours.</p></li>
-<li><p>Both of the above functions will return two objects. The first is a data frame of the ordered babynames, the second is the time that it takes the function to execute Hint, to get the time use a function that returns the time from computer’s internal clock at the start and finish of the function (I generally use package ‘matlab’ functions ‘tic’ and ‘toc’ for this, there are other ways). Each function will have one function argument, the input data, babynames.</p></li>
-<li><p>Now you will write third function, called ‘arrange.test’. This function will run both ‘tidy.arrange’ and ‘base.arrange’, the intention is to run each function on different sized data, using ‘arrange.test’ as a wrapper. We will then understand how they compare in terms of time to completion. The function ‘arrange.test’ will have as an argument the input data used by both functions. The function ‘arrange.test’ will return three objects; the time of completion for ‘tidy.arrange’, the time of completion for ‘base.arrange’ and the number of rows in the data frame being “arranged”.</p></li>
-<li><p>Now make a new r script (a .r file) called ‘arrange.test.run.r’. This script will: ‘source’ (?source) the functions in ‘arrange.test.r’ that you have saved in the R directory.</p></li>
-<li><p>This script will do the following:</p></li>
+<li><p>After your inspection of the data, create a file ‘speed.test.r’, this will be a script, and saved in the correct directory. The .r file will contain two functions:</p></li>
+<li><p>The first function will be called ‘tidy.arrange’ and will contain code to arrange the babynames tibble in alphabetical order. You will arrange the rows such that the names column is arranged alphabetically. Here you will use tidyverse functionality. The function will have two function arguments, 1. the input data, babynames, and 2, the row numbers that will be sorted. So, for example if all row numbers are sampled, the argument will be 1:dim(babynames)[1]. If you want the first 30 rows to be sorted, the argument will be 1:30 .</p></li>
+<li><p>tidy.arrange will return two objects. The first is a data frame of the ordered babynames, the second is the time that it takes the function to execute. Hint: to get the time use a function that returns the time from computer’s internal clock at the start and finish of the function (I generally use package ‘matlab’ functions ‘tic’ and ‘toc’ for this, there are other ways).</p></li>
+<li><p>Now you will write a script saved as ‘arrange.test.r’. This script will run ‘tidy.arrange’ but the goal will be to sequentially change the second function argument in tidy.arrange to evaluate the time to completion on different sized (number of rows) data.</p></li>
+<li><p>The ‘arrange.test.r’ script will do the following:</p></li>
 </ul>
 <ol style="list-style-type: decimal">
-<li><p>Run ‘arrange.test’ multiple times (at least five). During each of these ‘times’ or trials you will save the output from arrange.test in a data frame. Run ‘arrange.test’ at least five times and save the results from each trial.</p></li>
-<li><p>Using the saved data from the trials you performed, plot these data. Create a plot that has the number of seconds on the x-axis and the number of rows of the input data on the y-axis. Write this figure to the figs directory as a .png file, ‘arrange.test.trial.png’.</p></li>
+<li><p>Source ‘tidy.arrange.r’</p></li>
+<li><p>Run ‘arrange.test’ multiple times (at least five). During each of these trials you will:</p></li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li><p>Change the second function argument of tidy.arrange</p></li>
+<li><p>Save the output from arrange.test in a data frame.</p></li>
+</ol>
+<p>Run ‘arrange.test’ at least five times and assign these data to an object.</p>
+<ol start="2" style="list-style-type: decimal">
+<li>Using the saved data from the trials you performed: Create a plot that has the number of seconds on the x-axis and the number of rows of the input data on the y-axis. Write this figure to the figs directory as a .png file, ‘arrange.test.trial.png’.</li>
 </ol>
 </div>
 <div id="assignment-04---rmarkdown" class="section level3">
